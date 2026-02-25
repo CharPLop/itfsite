@@ -8,6 +8,8 @@
 <meta property="og:title" content="Dott.ssa Ilenia Tagliaferro — Psicoterapeuta CBT Brescia">
 <meta property="og:description" content="Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico. Prenota un appuntamento.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- FAVICON: Metti favicon.ico e/o favicon.png in images/ e decommenta -->
+<!-- <link rel="icon" type="image/png" href="images/favicon.png"> -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <!-- GOOGLE ANALYTICS 4 — Sostituisci G-XXXXXXXXXX col tuo ID -->
@@ -39,7 +41,11 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="nav-name">Dott.ssa Ilenia Tagliaferro</div>
+  <a href="#" class="nav-brand">
+    <!-- LOGO: Metti logo-ilenia.png in images/ e decommenta -->
+    <!-- <img src="images/logo-ilenia.png" alt="Logo" class="nav-logo-img"> -->
+    <span class="nav-name">Dott.ssa Ilenia Tagliaferro</span>
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#chi-sono" onclick="closeNav()">Chi Sono</a></li>
     <li><a href="#cosa-faccio" onclick="closeNav()">Cosa Faccio</a></li>
@@ -68,11 +74,15 @@
     </div>
     <div class="hero-visual">
       <div class="hero-card">
-        <!-- FOTO: Per inserire la foto di Ilenia, aggiungi qui:
-             <img src="foto-ilenia.jpg" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro">
-             La foto verrà mostrata nella card con bordi arrotondati.
+        <!-- FOTO: Per inserire la foto di Ilenia:
+             1. Metti foto-ilenia.jpg nella cartella images/
+             2. Aggiungi class="has-photo" al div hero-card qui sopra
+             3. Decommenta la riga img qui sotto
              Foto consigliata: ritratto verticale, sfondo neutro, 600x800px minimo -->
-        <span class="hero-card-initial">IT</span>
+        <!-- <img src="images/foto-ilenia.jpg" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro"> -->
+        <div class="hero-card-placeholder">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
+        </div>
         <span class="hero-card-name">Dott.ssa Ilenia<br>Tagliaferro</span>
         <span class="hero-card-role">PSICOTERAPEUTA CBT</span>
       </div>
@@ -276,6 +286,8 @@
 
 <!-- FOOTER -->
 <footer>
+  <!-- LOGO FOOTER: Metti logo-ilenia.png in images/ e decommenta -->
+  <!-- <img src="images/logo-ilenia.png" alt="Logo" class="footer-logo-img"> -->
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Psicoterapeuta CBT &bull; Brescia</p>
   <div class="footer-links">
