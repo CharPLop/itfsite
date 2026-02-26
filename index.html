@@ -24,11 +24,92 @@
 </script>
 
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Psychologist",
+  "name": "Dott.ssa Ilenia Tagliaferro",
+  "description": "Psicologa clinica e psicoterapeuta cognitivo-comportamentale. Percorsi per bambini, adolescenti e adulti.",
+  "url": "https://charplop.github.io/ileniatagliaferro/",
+  "telephone": "+393928215608",
+  "email": "ilenia.tagliaferro@email.com",
+  "image": "https://charplop.github.io/ileniatagliaferro/images/foto-ilenia.jpg",
+  "priceRange": "€€",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Guido Zadei, 60",
+      "addressLocality": "Brescia",
+      "postalCode": "25128",
+      "addressRegion": "BS",
+      "addressCountry": "IT"
+    },
+    {
+      "@type": "PostalAddress",
+      "addressLocality": "Iseo",
+      "postalCode": "25049",
+      "addressRegion": "BS",
+      "addressCountry": "IT"
+    }
+  ],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.534,
+    "longitude": 10.2175
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Brescia" },
+    { "@type": "City", "name": "Iseo" },
+    { "@type": "City", "name": "Rovato" }
+  ],
+  "knowsAbout": [
+    "Terapia Cognitivo-Comportamentale",
+    "Psicologia Clinica",
+    "Ansia",
+    "Difficoltà emotive",
+    "Psicologia dell'età evolutiva",
+    "Psicologia scolastica"
+  ],
+  "availableService": [
+    {
+      "@type": "MedicalTherapy",
+      "name": "Psicoterapia Cognitivo-Comportamentale (CBT)",
+      "description": "Percorsi individuali per ansia, difficoltà emotive e relazionali"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Supporto psicologico bambini e adolescenti",
+      "description": "Sostegno psicologico per l'età evolutiva"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Sedute online",
+      "description": "Colloqui psicologici in videochiamata"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/psicologa_ileniatagliaferro/"
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "Studio Psiche Holos",
+    "url": "https://charplop.github.io/psicheholos/"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "09:00",
+    "closes": "19:00"
+  }
+}
+</script>
 </head>
 <body>
 <!-- COOKIE -->
 <div class="cookie-banner" id="cookieBanner">
-  <span>Questo sito utilizza cookie analitici. <a href="#privacy">Maggiori info</a></span>
+  <span>Questo sito utilizza cookie analitici. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
   <button class="cookie-accept" onclick="acceptCookies()">Accetta</button>
 </div>
 
@@ -314,7 +395,9 @@
     <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
   </div>
   <div class="footer-line"></div>
-  <p class="footer-copy">&copy; 2025 Dott.ssa Ilenia Tagliaferro — Via Zadei 60, Brescia &bull; P.IVA: XXXXXXXXXXX</p>
+  <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
+  <!-- TODO: Inserire P.IVA reale -->
+  <p class="footer-copy">&copy; 2026 Dott.ssa Ilenia Tagliaferro — Via Zadei 60, Brescia &bull; P.IVA: XXXXXXXXXXX</p>
 </footer>
 <script src="js/main.js"></script>
 </body>
