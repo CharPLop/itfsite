@@ -64,7 +64,26 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
 .tab-content.active{display:block}
 
 .hidden{display:none}
-@media(max-width:600px){.field-row,.field-row-3{grid-template-columns:1fr}.admin-body{padding:16px}.section-card{padding:20px}}
+.img-slot{display:flex;gap:16px;align-items:center;background:var(--blush);border-radius:14px;padding:16px;margin-bottom:12px;border:1px solid var(--lavanda);transition:all .2s}
+.img-slot.uploading{opacity:.6;pointer-events:none}
+.img-preview-wrap{width:80px;height:80px;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--lavanda);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.img-preview-wrap.small{width:48px;height:48px;border-radius:8px}
+.img-preview{width:100%;height:100%;object-fit:cover;display:none}
+.img-preview.loaded{display:block}
+.img-preview.loaded+.img-preview-placeholder{display:none}
+.img-preview-placeholder{font-size:1.8rem}
+.img-preview-wrap.small .img-preview-placeholder{font-size:1.2rem}
+.img-slot-info{flex:1;min-width:0}
+.img-slot-label{font-weight:600;font-size:.95rem;color:var(--txt)}
+.img-slot-desc{font-size:.78rem;color:var(--light);margin-top:2px}
+.img-slot-file{font-size:.72rem;color:var(--lavanda);margin-top:4px;font-family:monospace}
+.img-slot-status{font-size:.78rem;margin-top:4px}
+.img-replace-btn{cursor:pointer;white-space:nowrap}
+.img-add-area{background:var(--blush);border-radius:14px;padding:16px;border:1px dashed var(--lavanda)}
+.img-add-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:8px}
+.img-add-preview-area{display:flex;gap:16px;align-items:center;margin-top:14px;padding:14px;background:#fff;border-radius:12px;border:1px solid var(--lavanda)}
+.img-add-preview{width:100px;height:100px;object-fit:cover;border-radius:10px;flex-shrink:0}
+@media(max-width:600px){.field-row,.field-row-3,.img-add-row{grid-template-columns:1fr}.admin-body{padding:16px}.section-card{padding:20px}.img-slot{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -105,6 +124,7 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
       <button class="tab" data-tab="faq">FAQ</button>
       <button class="tab" data-tab="sedi">Sedi</button>
       <button class="tab" data-tab="contatti">Contatti</button>
+      <button class="tab" data-tab="immagini">📷 Immagini</button>
     </div>
 
     <!-- HERO -->
@@ -181,6 +201,110 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
       </div>
     </div>
 
+    <!-- IMMAGINI -->
+    <div class="tab-content" id="tab-immagini">
+      <div class="section-card">
+        <h2>📷 Immagini del Sito</h2>
+        <p style="font-size:.88rem;color:var(--light);margin-bottom:20px">Clicca "Sostituisci" per cambiare una foto. Il sito si aggiorna in ~1 minuto.</p>
+
+        <div class="img-slot" id="slot-foto-ilenia">
+          <div class="img-preview-wrap">
+            <img class="img-preview" id="prev-foto-ilenia" src="" alt="">
+            <div class="img-preview-placeholder">👤</div>
+          </div>
+          <div class="img-slot-info">
+            <div class="img-slot-label">Foto Profilo</div>
+            <div class="img-slot-desc">Foto nella hero card della homepage</div>
+            <div class="img-slot-file" id="file-foto-ilenia">foto-ilenia.jpg</div>
+          </div>
+          <div class="img-slot-actions">
+            <label class="btn btn-primary btn-sm img-replace-btn">
+              🔄 Sostituisci
+              <input type="file" accept="image/jpeg,image/png,image/webp" hidden
+                onchange="previewAndUpload('foto-ilenia.jpg', this)">
+            </label>
+          </div>
+        </div>
+
+        <div class="img-slot" id="slot-logo-ilenia">
+          <div class="img-preview-wrap">
+            <img class="img-preview" id="prev-logo-ilenia" src="" alt="">
+            <div class="img-preview-placeholder">🔹</div>
+          </div>
+          <div class="img-slot-info">
+            <div class="img-slot-label">Logo</div>
+            <div class="img-slot-desc">Appare nella navbar e nel footer</div>
+            <div class="img-slot-file" id="file-logo-ilenia">logo-ilenia.png</div>
+          </div>
+          <div class="img-slot-actions">
+            <label class="btn btn-primary btn-sm img-replace-btn">
+              🔄 Sostituisci
+              <input type="file" accept="image/jpeg,image/png,image/webp" hidden
+                onchange="previewAndUpload('logo-ilenia.png', this)">
+            </label>
+          </div>
+        </div>
+
+        <div class="img-slot" id="slot-favicon">
+          <div class="img-preview-wrap small">
+            <img class="img-preview" id="prev-favicon" src="" alt="">
+            <div class="img-preview-placeholder">🔸</div>
+          </div>
+          <div class="img-slot-info">
+            <div class="img-slot-label">Favicon</div>
+            <div class="img-slot-desc">Icona nel tab del browser</div>
+            <div class="img-slot-file" id="file-favicon">favicon.png</div>
+          </div>
+          <div class="img-slot-actions">
+            <label class="btn btn-primary btn-sm img-replace-btn">
+              🔄 Sostituisci
+              <input type="file" accept="image/png" hidden
+                onchange="previewAndUpload('favicon.png', this)">
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- EXTRA IMAGES -->
+      <div class="section-card">
+        <h2>➕ Aggiungi Nuova Immagine</h2>
+        <p style="font-size:.88rem;color:var(--light);margin-bottom:16px">Per aggiungere foto extra (es. foto studio, seconda sede, ecc.)</p>
+
+        <div id="extraImagesList"></div>
+
+        <div class="img-add-area" id="imgAddArea">
+          <div class="img-add-row">
+            <div>
+              <label>Come si chiama questa foto?</label>
+              <select id="newImgLabel">
+                <option value="foto-studio">Foto dello studio</option>
+                <option value="foto-sede2">Foto seconda sede</option>
+                <option value="foto-team">Foto del team</option>
+                <option value="altro">Altro...</option>
+              </select>
+            </div>
+            <div id="customNameWrap" class="hidden">
+              <label>Nome personalizzato</label>
+              <input type="text" id="customImgName" placeholder="es. foto-sala-attesa">
+            </div>
+          </div>
+          <div class="img-add-preview-area hidden" id="addPreviewArea">
+            <img id="addPreviewImg" class="img-add-preview">
+            <div style="flex:1">
+              <p id="addPreviewInfo" style="font-size:.85rem;color:var(--light)"></p>
+              <button class="btn btn-success btn-sm" onclick="confirmUploadNew()" style="margin-top:8px">✅ Conferma e Carica</button>
+              <button class="btn btn-outline btn-sm" onclick="cancelUploadNew()" style="margin-top:8px">✕ Annulla</button>
+            </div>
+          </div>
+          <label class="btn btn-outline btn-sm" id="addImgBtn" style="margin-top:10px;cursor:pointer">
+            📁 Seleziona immagine
+            <input type="file" accept="image/jpeg,image/png,image/webp" hidden onchange="previewNewImage(this)">
+          </label>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="status-bar">
@@ -246,6 +370,7 @@ async function loadContent() {
       `<button class="btn btn-outline btn-sm" onclick="logout()">Esci</button>`;
 
     populateForm();
+    loadImages();
     setStatus('✅ Contenuto caricato', 'ok');
   } catch(e) {
     if (document.getElementById('loginScreen').classList.contains('hidden')) {
@@ -416,6 +541,188 @@ function addSede() {
 }
 function removeSede(i) {
   if (confirm('Eliminare questa sede?')) { content.sedi.splice(i, 1); renderSedi(); }
+}
+
+// ── IMAGES ──
+const IMG_SHAS = {};
+
+async function loadImages() {
+  try {
+    const files = await githubGet('images');
+    if (!Array.isArray(files)) return;
+
+    files.forEach(f => { IMG_SHAS[f.name] = f.sha; });
+
+    // Load previews for known slots
+    const knownImages = {
+      'foto-ilenia.jpg': 'prev-foto-ilenia',
+      'logo-ilenia.png': 'prev-logo-ilenia',
+      'favicon.png': 'prev-favicon'
+    };
+    for (const [name, prevId] of Object.entries(knownImages)) {
+      const el = document.getElementById(prevId);
+      if (el && IMG_SHAS[name]) {
+        el.src = `https://raw.githubusercontent.com/${REPO}/main/images/${name}?t=${Date.now()}`;
+        el.classList.add('loaded');
+      }
+    }
+
+    // Show extra images
+    const known = Object.keys(knownImages);
+    const extras = files.filter(f => !known.includes(f.name) && /\.(jpg|jpeg|png|webp)$/i.test(f.name));
+    const list = document.getElementById('extraImagesList');
+    if (extras.length) {
+      list.innerHTML = extras.map(f => {
+        const url = `https://raw.githubusercontent.com/${REPO}/main/images/${f.name}?t=${Date.now()}`;
+        const sizeKB = (f.size / 1024).toFixed(0);
+        return `<div class="img-slot" id="slot-extra-${f.name.replace(/\./g,'-')}">
+          <div class="img-preview-wrap">
+            <img class="img-preview loaded" src="${url}" alt="${f.name}">
+            <div class="img-preview-placeholder">📎</div>
+          </div>
+          <div class="img-slot-info">
+            <div class="img-slot-label">${f.name}</div>
+            <div class="img-slot-desc">${sizeKB} KB</div>
+          </div>
+          <div class="img-slot-actions">
+            <label class="btn btn-primary btn-sm img-replace-btn" style="cursor:pointer">
+              🔄 Sostituisci
+              <input type="file" accept="image/jpeg,image/png,image/webp" hidden
+                onchange="previewAndUpload('${f.name}', this)">
+            </label>
+            <button class="btn btn-outline btn-sm" onclick="deleteImage('${f.name}')" style="color:var(--err)">🗑</button>
+          </div>
+        </div>`;
+      }).join('');
+    } else {
+      list.innerHTML = '';
+    }
+  } catch(e) { /* not on github yet */ }
+}
+
+async function previewAndUpload(filename, input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) { alert('Immagine troppo grande (max 2MB). Riducila prima.'); input.value=''; return; }
+
+  // Show preview immediately
+  const slot = input.closest('.img-slot');
+  const prevImg = slot.querySelector('.img-preview');
+  const reader = new FileReader();
+  reader.onload = e => { prevImg.src = e.target.result; prevImg.classList.add('loaded'); };
+  reader.readAsDataURL(file);
+
+  // Upload
+  slot.classList.add('uploading');
+  setStatus(`Caricamento ${filename}...`, '');
+  try {
+    const base64 = await fileToBase64(file);
+    const body = { message: `Aggiornata ${filename}`, content: base64 };
+    if (IMG_SHAS[filename]) body.sha = IMG_SHAS[filename];
+
+    const result = await fetch(`https://api.github.com/repos/${REPO}/contents/images/${filename}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const data = await result.json();
+    if (data.content) IMG_SHAS[filename] = data.content.sha;
+    setStatus(`✅ ${filename} aggiornata! Il sito si aggiorna in ~1 minuto.`, 'ok');
+  } catch(e) {
+    setStatus('❌ Errore upload: ' + e.message, 'err');
+    prevImg.src = `https://raw.githubusercontent.com/${REPO}/main/images/${filename}?t=${Date.now()}`;
+  }
+  slot.classList.remove('uploading');
+  input.value = '';
+}
+
+// New image upload
+let pendingNewFile = null;
+
+document.getElementById('newImgLabel').addEventListener('change', function() {
+  document.getElementById('customNameWrap').classList.toggle('hidden', this.value !== 'altro');
+});
+
+function previewNewImage(input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 2 * 1024 * 1024) { alert('Immagine troppo grande (max 2MB)'); input.value=''; return; }
+
+  pendingNewFile = file;
+  const area = document.getElementById('addPreviewArea');
+  const img = document.getElementById('addPreviewImg');
+  const info = document.getElementById('addPreviewInfo');
+
+  const reader = new FileReader();
+  reader.onload = e => { img.src = e.target.result; };
+  reader.readAsDataURL(file);
+
+  const ext = file.name.split('.').pop().toLowerCase();
+  const label = document.getElementById('newImgLabel').value;
+  const baseName = label === 'altro' ?
+    (document.getElementById('customImgName').value.trim() || 'immagine') : label;
+  info.textContent = `${baseName}.${ext} — ${(file.size/1024).toFixed(0)} KB`;
+
+  area.classList.remove('hidden');
+  document.getElementById('addImgBtn').classList.add('hidden');
+}
+
+function cancelUploadNew() {
+  pendingNewFile = null;
+  document.getElementById('addPreviewArea').classList.add('hidden');
+  document.getElementById('addImgBtn').classList.remove('hidden');
+}
+
+async function confirmUploadNew() {
+  if (!pendingNewFile) return;
+  const ext = pendingNewFile.name.split('.').pop().toLowerCase();
+  const label = document.getElementById('newImgLabel').value;
+  const baseName = label === 'altro' ?
+    (document.getElementById('customImgName').value.trim().replace(/[^a-z0-9\-]/gi, '-') || 'immagine') : label;
+  const filename = `${baseName}.${ext}`;
+
+  setStatus(`Caricamento ${filename}...`, '');
+  try {
+    const base64 = await fileToBase64(pendingNewFile);
+    const body = { message: `Aggiunta ${filename}`, content: base64 };
+    if (IMG_SHAS[filename]) body.sha = IMG_SHAS[filename];
+
+    await fetch(`https://api.github.com/repos/${REPO}/contents/images/${filename}`, {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    setStatus(`✅ ${filename} caricata!`, 'ok');
+    cancelUploadNew();
+    loadImages();
+  } catch(e) {
+    setStatus('❌ Errore: ' + e.message, 'err');
+  }
+}
+
+async function deleteImage(filename) {
+  if (!confirm(`Eliminare ${filename}?`)) return;
+  try {
+    await fetch(`https://api.github.com/repos/${REPO}/contents/images/${filename}`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `token ${TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: `Rimossa ${filename}`, sha: IMG_SHAS[filename] })
+    });
+    delete IMG_SHAS[filename];
+    setStatus(`✅ ${filename} eliminata`, 'ok');
+    loadImages();
+  } catch(e) {
+    setStatus('❌ Errore: ' + e.message, 'err');
+  }
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
 }
 
 // ── UTILS ──

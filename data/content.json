@@ -12,58 +12,19 @@
     "paragrafo_2": "Ho lavorato in studio privato, consultorio e servizi territoriali, sviluppando competenze in percorsi individuali, di gruppo e nella formazione."
   },
   "servizi": [
-    {
-      "icona": "😟",
-      "titolo": "Ansia e attacchi di panico",
-      "testo": "Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci."
-    },
-    {
-      "icona": "💔",
-      "titolo": "Difficoltà emotive",
-      "testo": "Regolazione emotiva: riconoscere, accettare e gestire le emozioni."
-    },
-    {
-      "icona": "🤝",
-      "titolo": "Difficoltà relazionali",
-      "testo": "Supporto per costruire legami più sani in famiglia, lavoro, amicizie."
-    },
-    {
-      "icona": "🧒",
-      "titolo": "Infanzia e adolescenza",
-      "testo": "Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita."
-    },
-    {
-      "icona": "👨‍👩‍👧",
-      "titolo": "Sostegno genitoriale",
-      "testo": "Accompagnamento nelle difficoltà educative e relazionali."
-    },
-    {
-      "icona": "🖥️",
-      "titolo": "Sedute online",
-      "testo": "Psicoterapia a distanza con la stessa qualità dello studio."
-    }
+    { "icona": "😟", "titolo": "Ansia e attacchi di panico", "testo": "Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci." },
+    { "icona": "💔", "titolo": "Difficoltà emotive", "testo": "Regolazione emotiva: riconoscere, accettare e gestire le emozioni." },
+    { "icona": "🤝", "titolo": "Difficoltà relazionali", "testo": "Supporto per costruire legami più sani in famiglia, lavoro, amicizie." },
+    { "icona": "🧒", "titolo": "Infanzia e adolescenza", "testo": "Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita." },
+    { "icona": "👨‍👩‍👧", "titolo": "Sostegno genitoriale", "testo": "Accompagnamento nelle difficoltà educative e relazionali." },
+    { "icona": "🖥️", "titolo": "Sedute online", "testo": "Psicoterapia a distanza con la stessa qualità dello studio." }
   ],
   "faq": [
-    {
-      "domanda": "Come funziona il primo appuntamento?",
-      "risposta": "Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 50 minuti."
-    },
-    {
-      "domanda": "Quanto dura un percorso?",
-      "risposta": "Varia in base alla persona. Un percorso breve può durare 8-12 sedute, percorsi più approfonditi diversi mesi."
-    },
-    {
-      "domanda": "Cos'è la CBT?",
-      "risposta": "La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali."
-    },
-    {
-      "domanda": "Fai anche sedute online?",
-      "risposta": "Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza."
-    },
-    {
-      "domanda": "Come posso prenotare?",
-      "risposta": "Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento."
-    }
+    { "domanda": "Come funziona il primo appuntamento?", "risposta": "Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 50 minuti." },
+    { "domanda": "Quanto dura un percorso?", "risposta": "Varia in base alla persona. Un percorso breve può durare 8-12 sedute, percorsi più approfonditi diversi mesi." },
+    { "domanda": "Cos'è la CBT?", "risposta": "La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali." },
+    { "domanda": "Fai anche sedute online?", "risposta": "Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza." },
+    { "domanda": "Come posso prenotare?", "risposta": "Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento." }
   ],
   "sedi": [
     {
