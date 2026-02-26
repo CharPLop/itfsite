@@ -1,3 +1,89 @@
+// === CMS CONTENT LOADING ===
+(async function loadCMS() {
+  try {
+    const r = await fetch('data/content.json');
+    if (!r.ok) return;
+    const d = await r.json();
+
+    // Helper
+    const set = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.textContent = val; };
+    const setHTML = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.innerHTML = val; };
+
+    // Hero
+    if (d.hero) {
+      set('.hero-intro', d.hero.intro);
+      setHTML('.hero h1', `<strong>${d.hero.nome}</strong><em>${d.hero.sottotitolo}</em>`);
+      set('.hero-desc', d.hero.descrizione);
+      set('.hero-spec', d.hero.specialita);
+    }
+
+    // Chi sono
+    if (d.chi_sono) {
+      const chiPs = document.querySelectorAll('#chi-sono .section-text');
+      if (chiPs[0]) chiPs[0].textContent = d.chi_sono.paragrafo_1;
+      if (chiPs[1]) chiPs[1].textContent = d.chi_sono.paragrafo_2;
+    }
+
+    // Servizi
+    if (d.servizi && d.servizi.length) {
+      const grid = document.querySelector('.cosa-grid');
+      if (grid) {
+        grid.innerHTML = d.servizi.map((s, i) =>
+          `<div class="cosa-card reveal visible${i > 0 ? ' rd' + (i % 4) : ''}"><span class="cosa-card-icon">${s.icona}</span><h3>${s.titolo}</h3><p>${s.testo}</p></div>`
+        ).join('');
+      }
+    }
+
+    // FAQ
+    if (d.faq && d.faq.length) {
+      const list = document.querySelector('.faq-list');
+      if (list) {
+        list.innerHTML = d.faq.map(f =>
+          `<div class="faq-item reveal visible"><button class="faq-q" onclick="toggleFaq(this)">${f.domanda}</button><div class="faq-a">${f.risposta}</div></div>`
+        ).join('');
+      }
+    }
+
+    // Sedi
+    if (d.sedi && d.sedi.length) {
+      const container = document.querySelector('.dove-sedi');
+      if (container) {
+        container.innerHTML = d.sedi.map(s => {
+          const isPr = s.tipo === 'principale';
+          return `<div class="sede-card ${isPr ? 'sede-principale' : 'sede-secondaria'} reveal visible">
+            <span class="sede-badge">${isPr ? 'Sede principale' : 'Sede secondaria'}</span>
+            <div class="sede-header">
+              <div class="sede-info">
+                <h3>📍 ${s.nome}</h3>
+                <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">${s.indirizzo}</p>
+                <div class="sede-details">
+                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari}</div>
+                  <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:${s.telefono.replace(/\s/g,'')}" style="color:inherit;text-decoration:none">${s.telefono}</a></div>
+                  ${isPr ? '<div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>' : ''}
+                </div>
+                ${isPr && d.contatti ? `<div class="dove-social">
+                  <a href="https://www.instagram.com/${d.contatti.instagram}/" target="_blank" class="ig-pers">💜 @${d.contatti.instagram}</a>
+                  <a href="https://www.instagram.com/${d.contatti.instagram_studio}/" target="_blank" class="ig-studio">🌿 @${d.contatti.instagram_studio}</a>
+                </div>` : ''}
+              </div>
+              ${s.mappa_embed ? `<div class="sede-map"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    // Contatti (WhatsApp links)
+    if (d.contatti) {
+      const waMsg = encodeURIComponent(d.contatti.whatsapp_msg);
+      document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+        a.href = `https://wa.me/39${d.contatti.telefono}?text=${waMsg}`;
+      });
+    }
+
+  } catch (e) { /* JSON not available, use HTML fallback */ }
+})();
+
 // === NAVIGATION ===
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
