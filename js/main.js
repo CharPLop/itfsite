@@ -122,11 +122,16 @@ window.addEventListener('scroll', () => {
 });
 
 function toggleNav() {
-  document.getElementById('navLinks').classList.toggle('open');
+  var nl = document.getElementById('navLinks');
+  nl.classList.toggle('open');
+  document.querySelector('.hamburger').classList.toggle('active');
+  document.body.style.overflow = nl.classList.contains('open') ? 'hidden' : '';
 }
 
 function closeNav() {
   document.getElementById('navLinks').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 // === SCROLL REVEAL ===
