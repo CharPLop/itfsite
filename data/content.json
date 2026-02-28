@@ -3,28 +3,100 @@
     "intro": "Psicologa • Psicoterapeuta CBT",
     "nome": "Ilenia Tagliaferro",
     "sottotitolo": "Uno spazio sicuro di ascolto, accoglienza e crescita",
-    "descrizione": "Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, aiutando le persone a ritrovare equilibrio e costruire nuove risorse.",
+    "descrizione": "Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, offrendo uno spazio sicuro di ascolto, accoglienza e crescita. Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio e a costruire nuove risorse per affrontare la quotidianità.",
     "specialita": "Ansia • Difficoltà emotive • Difficoltà relazionali • Brescia • Iseo/Rovato"
   },
   "chi_sono": {
     "titolo": "Psicologa clinica e psicoterapeuta cognitivo-comportamentale",
-    "paragrafo_1": "Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica e psicoterapeuta cognitivo-comportamentale. Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio.",
-    "paragrafo_2": "Ho lavorato in studio privato, consultorio e servizi territoriali, sviluppando competenze in percorsi individuali, di gruppo e nella formazione."
+    "paragrafo_1": "Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica e psicoterapeuta cognitivo-comportamentale. Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, offrendo uno spazio sicuro di ascolto, accoglienza e crescita.",
+    "paragrafo_2": "Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio e a costruire nuove risorse per affrontare la quotidianità. Lavoro anche presso lo studio Psiche Holos a Brescia, insieme ad altre professioniste."
   },
   "servizi": [
-    { "icona": "😟", "titolo": "Ansia e attacchi di panico", "testo": "Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci." },
-    { "icona": "💔", "titolo": "Difficoltà emotive", "testo": "Regolazione emotiva: riconoscere, accettare e gestire le emozioni." },
-    { "icona": "🤝", "titolo": "Difficoltà relazionali", "testo": "Supporto per costruire legami più sani in famiglia, lavoro, amicizie." },
-    { "icona": "🧒", "titolo": "Infanzia e adolescenza", "testo": "Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita." },
-    { "icona": "👨‍👩‍👧", "titolo": "Sostegno genitoriale", "testo": "Accompagnamento nelle difficoltà educative e relazionali." },
-    { "icona": "🖥️", "titolo": "Sedute online", "testo": "Psicoterapia a distanza con la stessa qualità dello studio." }
+    {
+      "icona": "😟",
+      "titolo": "Ansia e attacchi di panico",
+      "testo": "Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci."
+    },
+    {
+      "icona": "💔",
+      "titolo": "Difficoltà emotive",
+      "testo": "Regolazione emotiva: riconoscere, accettare e gestire le emozioni."
+    },
+    {
+      "icona": "🤝",
+      "titolo": "Difficoltà relazionali",
+      "testo": "Supporto per costruire legami più sani in famiglia, lavoro, amicizie."
+    },
+    {
+      "icona": "🧒",
+      "titolo": "Infanzia e adolescenza",
+      "testo": "Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita."
+    },
+    {
+      "icona": "👨‍👩‍👧",
+      "titolo": "Sostegno genitoriale",
+      "testo": "Accompagnamento nelle difficoltà educative e relazionali."
+    },
+    {
+      "icona": "🖥️",
+      "titolo": "Sedute online",
+      "testo": "Psicoterapia a distanza con la stessa qualità dello studio."
+    }
+  ],
+  "recensioni": [
+    {
+      "stelle": 5,
+      "testo": "Ho iniziato un percorso per l'ansia che portavo avanti da anni. Fin dal primo incontro mi sono sentita accolta e capita. Oggi ho strumenti concreti per gestire i momenti difficili.",
+      "autore": "Giulia, 32 anni"
+    },
+    {
+      "stelle": 5,
+      "testo": "Ho portato mio figlio di 9 anni che aveva difficoltà a scuola. La dottoressa ha saputo creare un rapporto di fiducia con lui in pochissimo tempo. Siamo molto grati.",
+      "autore": "Marco, papà di Luca"
+    },
+    {
+      "stelle": 5,
+      "testo": "Le sedute online funzionano benissimo. Professionale, empatica e molto preparata. La consiglio a chiunque stia pensando di iniziare un percorso.",
+      "autore": "Sara, 28 anni"
+    }
+  ],
+  "blog": [
+    {
+      "titolo": "Come riconoscere l'ansia nei bambini",
+      "data": "2026-03-01",
+      "icona": "🧒",
+      "estratto": "L'ansia nei bambini si manifesta in modo diverso rispetto agli adulti. Ecco i segnali da osservare e come intervenire.",
+      "contenuto": "<h2>L'ansia infantile: un segnale da ascoltare</h2><p>Molti genitori si chiedono se certi comportamenti del proprio figlio siano normali o se nascondano qualcosa di più profondo. L'ansia nei bambini è più comune di quanto si pensi e si manifesta spesso in modi inaspettati.</p><h2>I segnali principali</h2><p>Mal di pancia ricorrenti prima di andare a scuola, difficoltà ad addormentarsi, irritabilità improvvisa, rifiuto di separarsi dai genitori: questi possono essere tutti segnali di ansia infantile.</p><h2>Quando preoccuparsi?</h2><p>È normale che i bambini provino ansia in alcune situazioni. Diventa importante intervenire quando l'ansia interferisce con la vita quotidiana: rifiuto scolastico, isolamento sociale, disturbi del sonno persistenti.</p><h2>Cosa possono fare i genitori</h2><p>Il primo passo è validare le emozioni del bambino senza minimizzare. Se il disagio persiste, un percorso con uno psicologo può aiutare il bambino a sviluppare strategie di gestione efficaci.</p>"
+    },
+    {
+      "titolo": "CBT: cos'è e come funziona",
+      "data": "2026-03-15",
+      "icona": "🧠",
+      "estratto": "La terapia cognitivo-comportamentale è l'approccio più validato scientificamente. Scopri come funziona e per chi è indicata.",
+      "contenuto": "<h2>Che cos'è la CBT?</h2><p>La Terapia Cognitivo-Comportamentale (CBT) è un approccio psicoterapeutico basato sull'evidenza scientifica. Si fonda su un'idea semplice ma potente: il modo in cui interpretiamo gli eventi influenza come ci sentiamo e come ci comportiamo.</p><h2>Come funziona una seduta</h2><p>In una seduta di CBT, terapeuta e paziente lavorano insieme per identificare i pensieri disfunzionali che alimentano il disagio. Non si tratta di 'pensare positivo', ma di imparare a riconoscere schemi di pensiero automatici e sviluppare alternative più realistiche.</p><h2>Per chi è indicata</h2><p>La CBT è particolarmente efficace per disturbi d'ansia, attacchi di panico, depressione, fobie, disturbo ossessivo-compulsivo e difficoltà relazionali. È adatta a tutte le età.</p><h2>Quanto dura un percorso</h2><p>Un percorso di CBT è generalmente strutturato e orientato agli obiettivi. Può durare da 8 a 20 sedute. Fin dalle prime sedute si lavora su strumenti concreti da utilizzare nella vita quotidiana.</p>"
+    }
   ],
   "faq": [
-    { "domanda": "Come funziona il primo appuntamento?", "risposta": "Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 50 minuti." },
-    { "domanda": "Quanto dura un percorso?", "risposta": "Varia in base alla persona. Un percorso breve può durare 8-12 sedute, percorsi più approfonditi diversi mesi." },
-    { "domanda": "Cos'è la CBT?", "risposta": "La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali." },
-    { "domanda": "Fai anche sedute online?", "risposta": "Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza." },
-    { "domanda": "Come posso prenotare?", "risposta": "Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento." }
+    {
+      "domanda": "Come funziona il primo appuntamento?",
+      "risposta": "Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 50 minuti."
+    },
+    {
+      "domanda": "Quanto dura un percorso?",
+      "risposta": "Varia in base alla persona. Un percorso breve può durare 8-12 sedute, percorsi più approfonditi diversi mesi."
+    },
+    {
+      "domanda": "Cos'è la CBT?",
+      "risposta": "La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali."
+    },
+    {
+      "domanda": "Fai anche sedute online?",
+      "risposta": "Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza."
+    },
+    {
+      "domanda": "Come posso prenotare?",
+      "risposta": "Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento."
+    }
   ],
   "sedi": [
     {
@@ -50,6 +122,7 @@
     "email": "ilenia.tagliaferro@email.com",
     "whatsapp_msg": "Buongiorno Dott.ssa Tagliaferro, vorrei informazioni per un appuntamento",
     "instagram": "psicologa_ileniatagliaferro",
-    "instagram_studio": "psicheholos"
+    "instagram_studio": "psicheholos",
+    "calendly_url": ""
   }
 }

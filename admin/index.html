@@ -121,6 +121,8 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
       <button class="tab active" data-tab="hero">Hero</button>
       <button class="tab" data-tab="chi">Chi Sono</button>
       <button class="tab" data-tab="servizi">Servizi</button>
+      <button class="tab" data-tab="recensioni">⭐ Recensioni</button>
+      <button class="tab" data-tab="blog">📝 Blog</button>
       <button class="tab" data-tab="faq">FAQ</button>
       <button class="tab" data-tab="sedi">Sedi</button>
       <button class="tab" data-tab="contatti">Contatti</button>
@@ -164,6 +166,26 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
       </div>
     </div>
 
+    <!-- RECENSIONI -->
+    <div class="tab-content" id="tab-recensioni">
+      <div class="section-card">
+        <h2>⭐ Recensioni</h2>
+        <p style="font-size:.85rem;color:var(--light);margin-bottom:16px">Aggiungi le testimonianze dei pazienti (anonime o con nome di fantasia).</p>
+        <div id="recensioniList"></div>
+        <button class="add-btn" onclick="addRecensione()">+ Aggiungi recensione</button>
+      </div>
+    </div>
+
+    <!-- BLOG -->
+    <div class="tab-content" id="tab-blog">
+      <div class="section-card">
+        <h2>📝 Articoli del Blog</h2>
+        <p style="font-size:.85rem;color:var(--light);margin-bottom:16px">Scrivi articoli su psicologia e benessere. Ogni articolo aiuta il SEO del sito.</p>
+        <div id="blogList"></div>
+        <button class="add-btn" onclick="addArticolo()">+ Nuovo articolo</button>
+      </div>
+    </div>
+
     <!-- FAQ -->
     <div class="tab-content" id="tab-faq">
       <div class="section-card">
@@ -198,6 +220,9 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
           <div><label>Instagram personale (senza @)</label><input type="text" data-path="contatti.instagram"></div>
           <div><label>Instagram studio (senza @)</label><input type="text" data-path="contatti.instagram_studio"></div>
         </div>
+        <label>📅 Calendly URL (per prenotazione online)</label>
+        <input type="text" data-path="contatti.calendly_url" placeholder="https://calendly.com/ilenia-tagliaferro/primo-colloquio">
+        <p style="font-size:.78rem;color:var(--light);margin-top:4px">Registrati gratis su <a href="https://calendly.com" target="_blank" style="color:var(--lilla)">calendly.com</a>, crea un evento "Primo colloquio" (50 min), e incolla qui il link. Lascia vuoto per disattivare.</p>
       </div>
     </div>
 
@@ -413,6 +438,8 @@ function populateForm() {
   renderServizi();
   renderFaq();
   renderSedi();
+  renderRecensioni();
+  renderBlog();
 }
 
 function collectForm() {
@@ -420,6 +447,8 @@ function collectForm() {
     setPath(content, el.dataset.path, el.value);
   });
   collectServizi();
+  collectRecensioni();
+  collectBlog();
   collectFaq();
   collectSedi();
 }
@@ -541,6 +570,88 @@ function addSede() {
 }
 function removeSede(i) {
   if (confirm('Eliminare questa sede?')) { content.sedi.splice(i, 1); renderSedi(); }
+}
+
+// ── RECENSIONI REPEATER ──
+function renderRecensioni() {
+  if (!content.recensioni) content.recensioni = [];
+  const list = document.getElementById('recensioniList');
+  list.innerHTML = '';
+  content.recensioni.forEach((r, i) => {
+    list.innerHTML += `
+      <div class="repeater-item">
+        <button class="remove-btn" onclick="removeRecensione(${i})">✕</button>
+        <div class="field-row">
+          <div><label>Stelle (1-5)</label><input type="number" min="1" max="5" data-rec="${i}" data-key="stelle" value="${r.stelle || 5}" style="max-width:80px"></div>
+          <div><label>Autore (nome e età)</label><input type="text" data-rec="${i}" data-key="autore" value="${esc(r.autore)}"></div>
+        </div>
+        <label>Testimonianza</label>
+        <textarea data-rec="${i}" data-key="testo" rows="3">${esc(r.testo)}</textarea>
+      </div>`;
+  });
+}
+function collectRecensioni() {
+  content.recensioni = [];
+  document.querySelectorAll('[data-rec]').forEach(el => {
+    const i = parseInt(el.dataset.rec);
+    if (!content.recensioni[i]) content.recensioni[i] = {};
+    const val = el.dataset.key === 'stelle' ? parseInt(el.value) || 5 : el.value;
+    content.recensioni[i][el.dataset.key] = val;
+  });
+}
+function addRecensione() {
+  if (!content.recensioni) content.recensioni = [];
+  content.recensioni.push({ stelle: 5, testo: 'Scrivi qui la testimonianza...', autore: 'Nome, età' });
+  renderRecensioni();
+}
+function removeRecensione(i) {
+  if (confirm('Eliminare questa recensione?')) { content.recensioni.splice(i, 1); renderRecensioni(); }
+}
+
+// ── BLOG REPEATER ──
+function renderBlog() {
+  if (!content.blog) content.blog = [];
+  const list = document.getElementById('blogList');
+  list.innerHTML = '';
+  content.blog.forEach((a, i) => {
+    list.innerHTML += `
+      <div class="repeater-item">
+        <button class="remove-btn" onclick="removeArticolo(${i})">✕</button>
+        <div class="field-row">
+          <div><label>Icona (emoji)</label><input type="text" data-blog="${i}" data-key="icona" value="${esc(a.icona || '📝')}" style="max-width:80px"></div>
+          <div><label>Data pubblicazione</label><input type="date" data-blog="${i}" data-key="data" value="${esc(a.data)}"></div>
+        </div>
+        <label>Titolo dell'articolo</label>
+        <input type="text" data-blog="${i}" data-key="titolo" value="${esc(a.titolo)}">
+        <label>Estratto (2-3 righe, appare nella card)</label>
+        <textarea data-blog="${i}" data-key="estratto" rows="2">${esc(a.estratto)}</textarea>
+        <label>Contenuto completo (HTML — usa &lt;h2&gt; per titoli e &lt;p&gt; per paragrafi)</label>
+        <textarea data-blog="${i}" data-key="contenuto" rows="8" style="font-family:monospace;font-size:.82rem">${esc(a.contenuto)}</textarea>
+      </div>`;
+  });
+}
+function collectBlog() {
+  content.blog = [];
+  document.querySelectorAll('[data-blog]').forEach(el => {
+    const i = parseInt(el.dataset.blog);
+    if (!content.blog[i]) content.blog[i] = {};
+    content.blog[i][el.dataset.key] = el.value;
+  });
+}
+function addArticolo() {
+  if (!content.blog) content.blog = [];
+  const today = new Date().toISOString().split('T')[0];
+  content.blog.push({
+    titolo: 'Nuovo articolo',
+    data: today,
+    icona: '📝',
+    estratto: 'Breve descrizione dell\'articolo...',
+    contenuto: '<h2>Primo paragrafo</h2><p>Scrivi qui il contenuto del tuo articolo.</p><h2>Secondo paragrafo</h2><p>Continua qui...</p>'
+  });
+  renderBlog();
+}
+function removeArticolo(i) {
+  if (confirm('Eliminare questo articolo?')) { content.blog.splice(i, 1); renderBlog(); }
 }
 
 // ── IMAGES ──

@@ -130,6 +130,8 @@
     <li><a href="#cosa-faccio" onclick="closeNav()">Cosa Faccio</a></li>
     <li><a href="#come-lavoro" onclick="closeNav()">Come Lavoro</a></li>
     <li><a href="#prenota" onclick="closeNav()">Prenota</a></li>
+    <li><a href="#recensioni" onclick="closeNav()">Recensioni</a></li>
+    <li><a href="#blog" onclick="closeNav()">Blog</a></li>
     <li><a href="#dove-siamo" onclick="closeNav()">Sedi</a></li>
   </ul>
   <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -143,7 +145,7 @@
     <div class="hero-text">
       <p class="hero-intro">Psicologa &bull; Psicoterapeuta CBT</p>
       <h1><strong>Ilenia Tagliaferro</strong><em>Uno spazio sicuro di ascolto, accoglienza e crescita</em></h1>
-      <p class="hero-desc">Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, aiutando le persone a ritrovare equilibrio e costruire nuove risorse.</p>
+      <p class="hero-desc">Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, offrendo uno spazio sicuro di ascolto, accoglienza e crescita. Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio e a costruire nuove risorse per affrontare la quotidianità.</p>
       <p class="hero-spec">Ansia &bull; Difficoltà emotive &bull; Difficoltà relazionali &bull; Brescia &bull; Iseo/Rovato</p>
       <div class="hero-cta">
         <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20prenotare%20un%20appuntamento" target="_blank" class="btn btn-wa" onclick="trackWA('hero')">💬 WhatsApp</a>
@@ -172,8 +174,8 @@
         <div class="section-label reveal">Chi Sono</div>
         <h2 class="section-title reveal">Psicologa clinica e<br>psicoterapeuta <em>cognitivo-comportamentale</em></h2>
         <div class="section-line reveal"></div>
-        <p class="section-text reveal">Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica e psicoterapeuta cognitivo-comportamentale. Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio.</p>
-        <p class="section-text reveal" style="margin-top:16px">Ho lavorato in studio privato, consultorio e servizi territoriali, sviluppando competenze in percorsi individuali, di gruppo e nella formazione.</p>
+        <p class="section-text reveal">Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica e psicoterapeuta cognitivo-comportamentale. Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico e psicoterapia, offrendo uno spazio sicuro di ascolto, accoglienza e crescita.</p>
+        <p class="section-text reveal" style="margin-top:16px">Mi occupo di ansia, difficoltà emotive e relazionali, aiutando le persone a ritrovare equilibrio e a costruire nuove risorse per affrontare la quotidianità. Lavoro anche presso lo studio Psiche Holos a Brescia, insieme ad altre professioniste.</p>
         <div class="chi-highlights">
           <div class="chi-highlight reveal"><h4>Studio privato e consultorio</h4><p>Esperienza in contesti diversi: studio, consultorio, servizi territoriali, scuola.</p></div>
           <div class="chi-highlight reveal rd1"><h4>Incontri protetti</h4><p>Gestione di incontri in contesti delicati con supervisione professionale.</p></div>
@@ -302,6 +304,51 @@
         </form>
         <div class="form-success" id="formSuccess">💜 Messaggio inviato! Ti ricontattero presto.</div>
       </div>
+      <!-- CALENDLY - Prenotazione diretta -->
+      <div class="calendly-wrap reveal" style="grid-column: 1 / -1;">
+        <h3>📅 Oppure prenota direttamente online</h3>
+        <p class="form-or">Scegli giorno e orario libero — riceverai conferma via email</p>
+        <div class="calendly-placeholder" id="calendlyPlaceholder">
+          <!-- ISTRUZIONI CALENDLY:
+               1. Registrati GRATIS su https://calendly.com
+               2. Crea un evento "Primo colloquio conoscitivo" (50 min)
+               3. Copia il tuo link (es. https://calendly.com/ilenia-tagliaferro/primo-colloquio)
+               4. Inserisci URL nel pannello admin → Contatti → Calendly URL -->
+          <div class="calendly-setup-msg">
+            <span>📅</span>
+            <p><strong>Prenotazione online in arrivo!</strong><br>Questa funzione sarà attiva appena configurato Calendly.</p>
+          </div>
+        </div>
+        <div class="calendly-embed hidden" id="calendlyEmbed">
+          <iframe src="" id="calendlyFrame" style="width:100%;min-height:650px;border:none;border-radius:12px"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section class="recensioni" id="recensioni">
+  <div class="container">
+    <div class="section-label reveal">Dicono di me</div>
+    <h2 class="section-title reveal">Le <em>esperienze</em> di chi ha fatto un percorso</h2>
+    <div class="section-line reveal"></div>
+    <div class="recensioni-grid" id="recensioniGrid">
+      <div class="recensione-card reveal">
+        <div class="recensione-stars">★★★★★</div>
+        <p class="recensione-text">"Ho iniziato un percorso per l'ansia che portavo avanti da anni. Fin dal primo incontro mi sono sentita accolta e capita. Oggi ho strumenti concreti per gestire i momenti difficili."</p>
+        <div class="recensione-author">— Giulia, 32 anni</div>
+      </div>
+      <div class="recensione-card reveal reveal-delay-1">
+        <div class="recensione-stars">★★★★★</div>
+        <p class="recensione-text">"Ho portato mio figlio di 9 anni che aveva difficoltà a scuola. La dottoressa ha saputo creare un rapporto di fiducia con lui in pochissimo tempo. Siamo molto grati."</p>
+        <div class="recensione-author">— Marco, papà di Luca</div>
+      </div>
+      <div class="recensione-card reveal reveal-delay-2">
+        <div class="recensione-stars">★★★★★</div>
+        <p class="recensione-text">"Le sedute online funzionano benissimo. Professionale, empatica e molto preparata. La consiglio a chiunque stia pensando di iniziare un percorso."</p>
+        <div class="recensione-author">— Sara, 28 anni</div>
+      </div>
     </div>
   </div>
 </section>
@@ -318,6 +365,21 @@
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Cos'è la CBT?</button><div class="faq-a">La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali.</div></div>
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Fai anche sedute online?</button><div class="faq-a">Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza.</div></div>
       <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Come posso prenotare?</button><div class="faq-a">Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="section-label reveal">Approfondimenti</div>
+    <h2 class="section-title reveal">Articoli su <em>benessere e psicologia</em></h2>
+    <div class="section-line reveal"></div>
+    <div class="blog-grid" id="blogGrid">
+      <!-- Articoli caricati da content.json -->
+    </div>
+    <div class="blog-empty" id="blogEmpty" style="display:none">
+      <p>Nuovi articoli in arrivo! Seguimi su Instagram per non perderli.</p>
     </div>
   </div>
 </section>
@@ -391,7 +453,7 @@
   <p class="footer-role">Psicologa Clinica &bull; Psicoterapeuta CBT &bull; Brescia</p>
   <div class="footer-links">
     <a href="#chi-sono">Chi Sono</a><a href="#cosa-faccio">Cosa Faccio</a><a href="#come-lavoro">Come Lavoro</a>
-    <a href="#prenota">Prenota</a><a href="#faq">FAQ</a><a href="#dove-siamo">Sedi</a>
+    <a href="#prenota">Prenota</a><a href="#recensioni">Recensioni</a><a href="#blog">Blog</a><a href="#faq">FAQ</a><a href="#dove-siamo">Sedi</a>
     <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
   </div>
   <div class="footer-line"></div>

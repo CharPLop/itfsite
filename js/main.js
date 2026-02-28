@@ -79,6 +79,61 @@
       document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
         a.href = `https://wa.me/39${d.contatti.telefono}?text=${waMsg}`;
       });
+      // Calendly
+      if (d.contatti.calendly_url) {
+        const ph = document.getElementById('calendlyPlaceholder');
+        const em = document.getElementById('calendlyEmbed');
+        const fr = document.getElementById('calendlyFrame');
+        if (ph && em && fr) {
+          ph.style.display = 'none';
+          em.classList.remove('hidden');
+          fr.src = d.contatti.calendly_url;
+        }
+      }
+    }
+
+    // Recensioni
+    if (d.recensioni && d.recensioni.length) {
+      const rGrid = document.getElementById('recensioniGrid');
+      if (rGrid) {
+        rGrid.innerHTML = d.recensioni.map((r, i) =>
+          `<div class="recensione-card reveal visible${i > 0 ? ' reveal-delay-' + i : ''}">
+            <div class="recensione-stars">${'★'.repeat(r.stelle)}${'☆'.repeat(5 - r.stelle)}</div>
+            <p class="recensione-text">"${r.testo}"</p>
+            <div class="recensione-author">— ${r.autore}</div>
+          </div>`
+        ).join('');
+      }
+    }
+
+    // Blog
+    if (d.blog && d.blog.length) {
+      const bGrid = document.getElementById('blogGrid');
+      const bEmpty = document.getElementById('blogEmpty');
+      if (bGrid) {
+        bGrid.innerHTML = d.blog.map((art, i) => {
+          const date = new Date(art.data);
+          const dateStr = date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+          const slug = art.titolo.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+          return `<a class="blog-card reveal visible${i > 0 ? ' reveal-delay-' + i : ''}" href="#articolo-${slug}" onclick="openArticle(${i}); return false;">
+            <div class="blog-card-img-placeholder">${art.icona || '📝'}</div>
+            <div class="blog-card-body">
+              <div class="blog-card-date">${dateStr}</div>
+              <h3 class="blog-card-title">${art.titolo}</h3>
+              <p class="blog-card-excerpt">${art.estratto}</p>
+              <span class="blog-card-read">Leggi l'articolo →</span>
+            </div>
+          </a>`;
+        }).join('');
+        if (bEmpty) bEmpty.style.display = 'none';
+      }
+      // Store blog data globally for article view
+      window.__blogData = d.blog;
+    } else {
+      const bGrid = document.getElementById('blogGrid');
+      const bEmpty = document.getElementById('blogEmpty');
+      if (bGrid) bGrid.innerHTML = '';
+      if (bEmpty) bEmpty.style.display = 'block';
     }
 
   } catch (e) { /* JSON not available, use HTML fallback */ }
@@ -137,6 +192,43 @@ setTimeout(() => {
 function acceptCookies() {
   try { localStorage.setItem('cookies_accepted', 'true'); } catch (e) {}
   document.getElementById('cookieBanner').classList.remove('show');
+}
+
+// === BLOG ARTICLE OVERLAY ===
+function openArticle(index) {
+  const articles = window.__blogData;
+  if (!articles || !articles[index]) return;
+  const art = articles[index];
+  const date = new Date(art.data);
+  const dateStr = date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // Create overlay
+  let overlay = document.getElementById('blogOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'blogOverlay';
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9999;display:flex;justify-content:center;overflow-y:auto;padding:40px 16px;backdrop-filter:blur(4px)';
+    document.body.appendChild(overlay);
+  }
+  overlay.innerHTML = `<div class="blog-article" style="background:#fff;border-radius:20px;padding:40px;max-width:720px;width:100%;margin:auto;position:relative;max-height:fit-content">
+    <a href="#" class="blog-article-back" onclick="closeArticle(); return false;">← Torna agli articoli</a>
+    <div class="blog-article-date">${dateStr}</div>
+    <h1>${art.titolo}</h1>
+    <div class="blog-article-content">${art.contenuto}</div>
+    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(106,79,118,.1);text-align:center">
+      <p style="font-size:.9rem;color:var(--text-light);margin-bottom:12px">Ti è stato utile? Condividilo o prenota un appuntamento</p>
+      <a href="#prenota" class="btn btn-primary" onclick="closeArticle();" style="font-size:.85rem;padding:10px 24px">Prenota un colloquio</a>
+    </div>
+  </div>`;
+  overlay.style.display = 'flex';
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeArticle(); });
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+  const overlay = document.getElementById('blogOverlay');
+  if (overlay) { overlay.style.display = 'none'; overlay.innerHTML = ''; }
+  document.body.style.overflow = '';
 }
 
 // === CONTACT FORM (Web3Forms) ===
