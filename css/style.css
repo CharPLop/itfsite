@@ -259,14 +259,7 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
 }
 
 /* ═══ RECENSIONI ═══ */
-.recensioni{padding:80px 0;background:var(--lavender)}
-.recensioni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.recensione-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(106,79,118,.06);border:1px solid rgba(106,79,118,.06);transition:transform .3s}
-.recensione-card:hover{transform:translateY(-3px)}
-.recensione-stars{color:#f5a623;font-size:1.1rem;letter-spacing:2px;margin-bottom:12px}
-.recensione-text{font-size:.92rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:16px}
-.recensione-author{font-size:.82rem;color:var(--primary);font-weight:500}
-@media(max-width:768px){.recensioni-grid{grid-template-columns:1fr}}
+
 
 /* ═══ BLOG ═══ */
 .blog{padding:80px 0}
@@ -294,9 +287,5 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
 .blog-article-content h3{font-size:1rem;color:var(--primary);margin:20px 0 8px}
 
 /* ═══ CALENDLY ═══ */
-.calendly-wrap{background:var(--lavender);border-radius:16px;padding:32px;text-align:center;margin-top:24px}
-.calendly-wrap h3{font-family:var(--serif);font-size:1.2rem;color:var(--text)}
-.calendly-setup-msg{padding:40px;display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text-light)}
-.calendly-setup-msg span{font-size:2.5rem}
-.calendly-setup-msg p{font-size:.88rem;line-height:1.6}
+
 .hidden{display:none}

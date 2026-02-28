@@ -79,32 +79,8 @@
       document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
         a.href = `https://wa.me/39${d.contatti.telefono}?text=${waMsg}`;
       });
-      // Calendly
-      if (d.contatti.calendly_url) {
-        const ph = document.getElementById('calendlyPlaceholder');
-        const em = document.getElementById('calendlyEmbed');
-        const fr = document.getElementById('calendlyFrame');
-        if (ph && em && fr) {
-          ph.style.display = 'none';
-          em.classList.remove('hidden');
-          fr.src = d.contatti.calendly_url;
-        }
-      }
     }
 
-    // Recensioni
-    if (d.recensioni && d.recensioni.length) {
-      const rGrid = document.getElementById('recensioniGrid');
-      if (rGrid) {
-        rGrid.innerHTML = d.recensioni.map((r, i) =>
-          `<div class="recensione-card reveal visible${i > 0 ? ' reveal-delay-' + i : ''}">
-            <div class="recensione-stars">${'★'.repeat(r.stelle)}${'☆'.repeat(5 - r.stelle)}</div>
-            <p class="recensione-text">"${r.testo}"</p>
-            <div class="recensione-author">— ${r.autore}</div>
-          </div>`
-        ).join('');
-      }
-    }
 
     // Blog
     if (d.blog && d.blog.length) {

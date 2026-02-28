@@ -121,7 +121,7 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
       <button class="tab active" data-tab="hero">Hero</button>
       <button class="tab" data-tab="chi">Chi Sono</button>
       <button class="tab" data-tab="servizi">Servizi</button>
-      <button class="tab" data-tab="recensioni">⭐ Recensioni</button>
+
       <button class="tab" data-tab="blog">📝 Blog</button>
       <button class="tab" data-tab="faq">FAQ</button>
       <button class="tab" data-tab="sedi">Sedi</button>
@@ -167,14 +167,6 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
     </div>
 
     <!-- RECENSIONI -->
-    <div class="tab-content" id="tab-recensioni">
-      <div class="section-card">
-        <h2>⭐ Recensioni</h2>
-        <p style="font-size:.85rem;color:var(--light);margin-bottom:16px">Aggiungi le testimonianze dei pazienti (anonime o con nome di fantasia).</p>
-        <div id="recensioniList"></div>
-        <button class="add-btn" onclick="addRecensione()">+ Aggiungi recensione</button>
-      </div>
-    </div>
 
     <!-- BLOG -->
     <div class="tab-content" id="tab-blog">
@@ -220,9 +212,7 @@ textarea{resize:vertical;min-height:80px;line-height:1.6}
           <div><label>Instagram personale (senza @)</label><input type="text" data-path="contatti.instagram"></div>
           <div><label>Instagram studio (senza @)</label><input type="text" data-path="contatti.instagram_studio"></div>
         </div>
-        <label>📅 Calendly URL (per prenotazione online)</label>
-        <input type="text" data-path="contatti.calendly_url" placeholder="https://calendly.com/ilenia-tagliaferro/primo-colloquio">
-        <p style="font-size:.78rem;color:var(--light);margin-top:4px">Registrati gratis su <a href="https://calendly.com" target="_blank" style="color:var(--lilla)">calendly.com</a>, crea un evento "Primo colloquio" (50 min), e incolla qui il link. Lascia vuoto per disattivare.</p>
+
       </div>
     </div>
 
@@ -438,7 +428,6 @@ function populateForm() {
   renderServizi();
   renderFaq();
   renderSedi();
-  renderRecensioni();
   renderBlog();
 }
 
@@ -447,7 +436,6 @@ function collectForm() {
     setPath(content, el.dataset.path, el.value);
   });
   collectServizi();
-  collectRecensioni();
   collectBlog();
   collectFaq();
   collectSedi();
@@ -572,41 +560,6 @@ function removeSede(i) {
   if (confirm('Eliminare questa sede?')) { content.sedi.splice(i, 1); renderSedi(); }
 }
 
-// ── RECENSIONI REPEATER ──
-function renderRecensioni() {
-  if (!content.recensioni) content.recensioni = [];
-  const list = document.getElementById('recensioniList');
-  list.innerHTML = '';
-  content.recensioni.forEach((r, i) => {
-    list.innerHTML += `
-      <div class="repeater-item">
-        <button class="remove-btn" onclick="removeRecensione(${i})">✕</button>
-        <div class="field-row">
-          <div><label>Stelle (1-5)</label><input type="number" min="1" max="5" data-rec="${i}" data-key="stelle" value="${r.stelle || 5}" style="max-width:80px"></div>
-          <div><label>Autore (nome e età)</label><input type="text" data-rec="${i}" data-key="autore" value="${esc(r.autore)}"></div>
-        </div>
-        <label>Testimonianza</label>
-        <textarea data-rec="${i}" data-key="testo" rows="3">${esc(r.testo)}</textarea>
-      </div>`;
-  });
-}
-function collectRecensioni() {
-  content.recensioni = [];
-  document.querySelectorAll('[data-rec]').forEach(el => {
-    const i = parseInt(el.dataset.rec);
-    if (!content.recensioni[i]) content.recensioni[i] = {};
-    const val = el.dataset.key === 'stelle' ? parseInt(el.value) || 5 : el.value;
-    content.recensioni[i][el.dataset.key] = val;
-  });
-}
-function addRecensione() {
-  if (!content.recensioni) content.recensioni = [];
-  content.recensioni.push({ stelle: 5, testo: 'Scrivi qui la testimonianza...', autore: 'Nome, età' });
-  renderRecensioni();
-}
-function removeRecensione(i) {
-  if (confirm('Eliminare questa recensione?')) { content.recensioni.splice(i, 1); renderRecensioni(); }
-}
 
 // ── BLOG REPEATER ──
 function renderBlog() {
