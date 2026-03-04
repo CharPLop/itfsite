@@ -56,7 +56,7 @@
       "data": "2026-03-15",
       "icona": "🧠",
       "estratto": "La terapia cognitivo-comportamentale è l'approccio più validato scientificamente. Scopri come funziona e per chi è indicata.",
-      "contenuto": "<h2>Che cos'è la CBT?</h2><p>La Terapia Cognitivo-Comportamentale (CBT) è un approccio psicoterapeutico basato sull'evidenza scientifica. Si fonda su un'idea semplice ma potente: il modo in cui interpretiamo gli eventi influenza come ci sentiamo e come ci comportiamo.</p><h2>Come funziona una seduta</h2><p>In una seduta di CBT, terapeuta e paziente lavorano insieme per identificare i pensieri disfunzionali che alimentano il disagio. Non si tratta di 'pensare positivo', ma di imparare a riconoscere schemi di pensiero automatici e sviluppare alternative più realistiche.</p><h2>Per chi è indicata</h2><p>La CBT è particolarmente efficace per disturbi d'ansia, attacchi di panico, depressione, fobie, disturbo ossessivo-compulsivo e difficoltà relazionali. È adatta a tutte le età.</p><h2>Quanto dura un percorso</h2><p>Un percorso di CBT è generalmente strutturato e orientato agli obiettivi. Può durare da 8 a 20 sedute. Fin dalle prime sedute si lavora su strumenti concreti da utilizzare nella vita quotidiana.</p>"
+      "contenuto": "<h2>Che cos'è la CBT?</h2><p>La Terapia Cognitivo-Comportamentale (CBT) è un approccio psicoterapeutico basato sull'evidenza scientifica. Si fonda su un'idea semplice ma potente: il modo in cui interpretiamo gli eventi influenza come ci sentiamo e come ci comportiamo.</p><h2>Come funziona una seduta</h2><p>In una seduta di CBT, terapeuta e paziente lavorano insieme per identificare i pensieri disfunzionali che alimentano il disagio. Non si tratta di 'pensare positivo', ma di imparare a riconoscere schemi di pensiero automatici e sviluppare alternative più realistiche.</p><h2>Per chi è indicata</h2><p>La CBT è particolarmente efficace per disturbi d'ansia, attacchi di panico, depressione, fobie, disturbo ossessivo-compulsivo e difficoltà relazionali. È adatta a tutte le età.</p><h2>Quanto dura un percorso</h2><p>Un percorso di CBT è generalmente strutturato e orientato agli obiettivi. La durata varia in base alla persona e alla situazione. Fin dalle prime sedute si lavora su strumenti concreti da utilizzare nella vita quotidiana.</p>"
     }
   ],
   "faq": [
@@ -66,7 +66,11 @@
     },
     {
       "domanda": "Quanto dura un percorso?",
-      "risposta": "Varia in base alla persona. Un percorso breve può durare 8-12 sedute, percorsi più approfonditi diversi mesi."
+      "risposta": "Non esiste una durata standard: dipende dalla persona, dalla situazione e dagli obiettivi. Ne parliamo insieme e valutiamo passo dopo passo."
+    },
+    {
+      "domanda": "Quanto costa una seduta?",
+      "risposta": "Una seduta individuale dura circa 50 minuti e ha un costo di 75€. La prestazione è detraibile fiscalmente come spesa sanitaria."
     },
     {
       "domanda": "Cos'è la CBT?",
