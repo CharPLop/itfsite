@@ -71,7 +71,7 @@ nav.scrolled{background:rgba(253,251,255,.92);backdrop-filter:blur(16px);box-sha
 .btn-wa{background:var(--whatsapp);color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25)}
 .btn-wa:hover{background:#1EBE5A;transform:translateY(-2px)}
 .hero-visual{display:flex;justify-content:center;align-items:center;animation:fadeUp 1.2s ease-out .3s both}
-.hero-card{width:320px;height:420px;border-radius:28px;background:linear-gradient(160deg,#F5F0F8 0%,#EDE6F3 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;box-shadow:0 20px 50px rgba(72,54,90,.12),0 0 0 1px rgba(72,54,90,.06);overflow:hidden}
+.hero-card{width:360px;height:420px;border-radius:28px;background:linear-gradient(160deg,#F5F0F8 0%,#EDE6F3 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;position:relative;box-shadow:0 20px 50px rgba(72,54,90,.12),0 0 0 1px rgba(72,54,90,.06);overflow:hidden}
 .hero-card::before{content:'';position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,transparent 40%);pointer-events:none;z-index:1}
 .hero-card-placeholder{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--lavanda),var(--lilla-pale));display:flex;align-items:center;justify-content:center}
 .hero-card-placeholder svg{width:44px;height:44px;stroke:var(--lilla-light);stroke-width:1.5;fill:none}
@@ -238,7 +238,7 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   .hero{overflow:visible;min-height:auto;padding-top:100px;padding-bottom:60px}
   .hero-inner{grid-template-columns:1fr;gap:40px}
   .hero-visual{order:-1}
-  .hero-card{width:240px;height:320px;border-radius:22px}
+  .hero-card{width:270px;height:320px;border-radius:22px}
   .hero-card-placeholder{width:70px;height:70px}
   .hero-card-placeholder svg{width:34px;height:34px}
   .chi-content,.prenota-inner{grid-template-columns:1fr}
