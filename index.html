@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="it">
+<!-- ============================================================
+     SOSTITUISCI TUTTO IL <head> ATTUALE CON QUESTO BLOCCO
+     Cambiamenti: title, meta desc, canonical, Schema.org migliorato, FAQPage
+     ============================================================ -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dottoressa Ilenia Tagliaferro — Psicologa e Psicoterapeuta CBT | Brescia e Franciacorta</title>
-<meta name="description" content="Dott.ssa Ilenia Tagliaferro - Psicologa clinica, specializzanda in psicoterapia cognitivo-comportamentale a Brescia. Bambini, adolescenti, adulti. Prenota su WhatsApp.">
-<meta property="og:title" content="Dott.ssa Ilenia Tagliaferro — Psicoterapeuta CBT Brescia">
-<meta property="og:description" content="Accompagno bambini, adolescenti e adulti in percorsi di supporto psicologico. Prenota un appuntamento.">
+
+<!-- TITLE: keyword prima del nome = più peso SEO | 60 caratteri visibili -->
+<title>Psicologa Brescia, Iseo, Rovato | Dott.ssa Ilenia Tagliaferro</title>
+
+<!-- META DESCRIPTION: include città target + specializzazione + CTA -->
+<meta name="description" content="Psicologa e psicoterapeuta CBT a Brescia, Iseo e Rovato. Dott.ssa Ilenia Tagliaferro — percorsi per ansia, difficoltà emotive, bambini e adulti. Prenota su WhatsApp.">
+
+<!-- CANONICAL: previene frammentazione autorità pagina su Google -->
+<link rel="canonical" href="https://ileniatagliaferro.it/">
+
+<!-- OPEN GRAPH (Social / WhatsApp preview) -->
+<meta property="og:title" content="Psicologa a Brescia, Iseo e Rovato | Dott.ssa Ilenia Tagliaferro">
+<meta property="og:description" content="Psicoterapeuta CBT a Brescia, Iseo e Rovato. Percorsi per ansia, difficoltà emotive e relazionali. Bambini, adolescenti e adulti. Prenota su WhatsApp.">
 <meta property="og:image" content="https://ileniatagliaferro.it/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ileniatagliaferro.it/">
 <meta property="og:locale" content="it_IT">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- GOOGLE ANALYTICS 4 — Sostituisci G-XXXXXXXXXX col tuo ID -->
+<!-- GOOGLE ANALYTICS 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0CZXPLDKG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -31,35 +45,32 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<!-- Schema.org Structured Data -->
+<!--
+  SCHEMA.ORG — Dati strutturati per SEO locale
+  NOVITÀ: tipo doppio ["Psychologist","LocalBusiness"]
+  LocalBusiness è il segnale più forte per le ricerche locali (psicologa Brescia ecc.)
+-->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Psychologist",
-  "name": "Dottoressa Ilenia Tagliaferro",
-  "description": "Psicologa clinica, specializzanda in psicoterapia cognitivo-comportamentale. Percorsi per bambini, adolescenti e adulti.",
+  "@type": ["Psychologist", "LocalBusiness"],
+  "name": "Dott.ssa Ilenia Tagliaferro — Psicologa e Psicoterapeuta CBT",
+  "description": "Psicologa clinica e psicoterapeuta cognitivo-comportamentale (CBT) a Brescia, Iseo e Rovato. Percorsi individuali per ansia, difficoltà emotive e relazionali. Bambini, adolescenti e adulti.",
   "url": "https://ileniatagliaferro.it/",
   "telephone": "+393928215608",
   "email": "ilenia.tagliaferro1@gmail.com",
   "image": "https://ileniatagliaferro.it/images/foto-ilenia.jpg",
   "priceRange": "€€",
-  "address": [
-    {
-      "@type": "PostalAddress",
-      "streetAddress": "Via Guido Zadei, 60",
-      "addressLocality": "Brescia",
-      "postalCode": "25128",
-      "addressRegion": "BS",
-      "addressCountry": "IT"
-    },
-    {
-      "@type": "PostalAddress",
-      "addressLocality": "Iseo",
-      "postalCode": "25049",
-      "addressRegion": "BS",
-      "addressCountry": "IT"
-    }
-  ],
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Bank Transfer",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Guido Zadei, 60",
+    "addressLocality": "Brescia",
+    "postalCode": "25128",
+    "addressRegion": "BS",
+    "addressCountry": "IT"
+  },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 45.534,
@@ -68,32 +79,66 @@
   "areaServed": [
     { "@type": "City", "name": "Brescia" },
     { "@type": "City", "name": "Iseo" },
-    { "@type": "City", "name": "Rovato" }
+    { "@type": "City", "name": "Rovato" },
+    { "@type": "City", "name": "Franciacorta" },
+    { "@type": "AdministrativeArea", "name": "Provincia di Brescia" }
   ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servizi psicologici",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalTherapy",
+          "name": "Psicoterapia Cognitivo-Comportamentale (CBT)",
+          "description": "Percorsi individuali per ansia, attacchi di panico, difficoltà emotive e relazionali a Brescia"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalTherapy",
+          "name": "Schema Therapy",
+          "description": "Terapia degli schemi emotivi profondi per adulti"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalTherapy",
+          "name": "Supporto psicologico bambini e adolescenti",
+          "description": "Sostegno psicologico per età evolutiva a Brescia e Iseo"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalTherapy",
+          "name": "Sedute di psicoterapia online",
+          "description": "Psicoterapia CBT in videochiamata per tutta la provincia di Brescia"
+        }
+      }
+    ]
+  },
   "knowsAbout": [
-    "Terapia Cognitivo-Comportamentale",
+    "Psicoterapia Cognitivo-Comportamentale",
     "Psicologia Clinica",
     "Ansia",
+    "Attacchi di panico",
+    "Schema Therapy",
     "Difficoltà emotive",
     "Psicologia dell'età evolutiva",
-    "Psicologia scolastica"
-  ],
-  "availableService": [
-    {
-      "@type": "MedicalTherapy",
-      "name": "Psicoterapia Cognitivo-Comportamentale (CBT)",
-      "description": "Percorsi individuali per ansia, difficoltà emotive e relazionali"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Supporto psicologico bambini e adolescenti",
-      "description": "Sostegno psicologico per l'età evolutiva"
-    },
-    {
-      "@type": "MedicalTherapy",
-      "name": "Sedute online",
-      "description": "Colloqui psicologici in videochiamata"
-    }
+    "Psicologia scolastica",
+    "Sostegno genitoriale"
   ],
   "sameAs": [
     "https://www.instagram.com/psicologa_ileniatagliaferro/"
@@ -102,17 +147,74 @@
     "@type": "Organization",
     "name": "Studio Psiche Holos",
     "url": "https://psicheholos.it/"
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "09:00",
-    "closes": "19:00"
   }
 }
 </script>
+
+<!--
+  FAQPAGE SCHEMA — Le FAQ diventano rich snippet in Google
+  Effetto visivo: il sito occupa il doppio dello spazio nei risultati di ricerca
+  con le domande espandibili direttamente nella SERP
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Come funziona il primo appuntamento con una psicologa a Brescia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il primo colloquio con la Dott.ssa Ilenia Tagliaferro è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 60 minuti ed è disponibile presso lo studio di Brescia (Via Zadei, 60) o in videochiamata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quanto dura un percorso di psicoterapia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non esiste una durata standard. La frequenza delle sedute viene concordata in base alle esigenze individuali, nel rispetto dei tempi di ciascuno."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cos'è la Terapia Cognitivo-Comportamentale (CBT)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali. È efficace per ansia, attacchi di panico, difficoltà emotive e relazionali."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La psicologa effettua sedute online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sì, la Dott.ssa Ilenia Tagliaferro offre sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza, raggiungibili da tutta la provincia di Brescia e da tutta Italia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Come prenotare un appuntamento con la psicologa a Brescia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "È possibile prenotare scrivendo su WhatsApp al 392 821 5608, inviando una email a ilenia.tagliaferro1@gmail.com oppure chiamando direttamente. La Dott.ssa Tagliaferro risponde in giornata."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cos'è la Schema Therapy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Schema Therapy aiuta a capire perché certi schemi emotivi e relazionali si ripetono nella nostra vita. Lavora sulle radici profonde del disagio ed è particolarmente utile per chi fatica nelle relazioni, con l'autostima o si ritrova in situazioni di blocco difficili da spiegare."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
-<body>
+  <body>
 <!-- COOKIE -->
 <div class="cookie-banner" id="cookieBanner">
   <span>Questo sito utilizza cookie analitici. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
