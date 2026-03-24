@@ -218,9 +218,6 @@ section{padding:100px 24px}
 .sedi-secondarie .sede-info{flex:1}
 .sede-map-small{border-radius:12px;overflow:hidden;margin-top:16px;border:1px solid var(--lavanda)}
 .sede-map-small iframe{width:100%;height:200px;border:none}
-.sede-placeholder{border-radius:12px;margin-top:16px;border:1px solid var(--lavanda);background:linear-gradient(135deg,var(--blush) 0%,#EDE6F4 100%);height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--lilla-light)}
-.sede-placeholder-icon{font-size:2.4rem}
-.sede-placeholder-text{font-size:.78rem;font-weight:500;letter-spacing:.5px}
 
 /* QUOTE */
 .quote-section{padding:80px 24px;background:var(--blush);text-align:center}
