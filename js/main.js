@@ -82,7 +82,7 @@
                   <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
                 </div>
               </div>
-              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
+              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : `<div class="sede-placeholder"><span class="sede-placeholder-icon">🌊</span><span class="sede-placeholder-text">Lago d'Iseo</span></div>`}
             </div>`).join('') + '</div>';
         }
 
