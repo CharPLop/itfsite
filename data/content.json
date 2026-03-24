@@ -101,14 +101,17 @@
     },
     {
       "tipo": "secondaria",
-      "nome": "Rovato",
+      "nome": "Rovato — Studio di Psicologia e Psicoterapia",
       "indirizzo": "Piazza Giuseppe Garibaldi, 12 — Rovato (BS)",
-      "telefono": "392 821 5608"
+      "orari": "Lunedì – Venerdì · 10:00 – 19:00",
+      "telefono": "392 821 5608",
+      "mappa_embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.5!2d10.0787!3d45.5636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781772e5a6e6c3b%3A0x5e8f2e0a1c8b4d0!2sPiazza+Giuseppe+Garibaldi%2C+12%2C+Rovato+BS!5e0!3m2!1sit!2sit!4v1"
     },
     {
       "tipo": "secondaria",
       "nome": "Iseo",
       "indirizzo": "Indirizzo da comunicare al momento della prenotazione",
+      "orari": "Lunedì – Venerdì · 10:00 – 19:00",
       "telefono": "392 821 5608"
     }
   ],

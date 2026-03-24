@@ -48,28 +48,45 @@
     if (d.sedi && d.sedi.length) {
       const container = document.querySelector('.dove-sedi');
       if (container) {
-        container.innerHTML = d.sedi.map(s => {
-          const isPr = s.tipo === 'principale';
-          return `<div class="sede-card ${isPr ? 'sede-principale' : 'sede-secondaria'} reveal visible">
-            <span class="sede-badge">${isPr ? 'Sede principale' : 'Sede secondaria'}</span>
+        const principale = d.sedi.filter(s => s.tipo === 'principale');
+        const secondarie = d.sedi.filter(s => s.tipo === 'secondaria');
+
+        let html = principale.map(s => `<div class="sede-card sede-principale reveal visible">
+            <span class="sede-badge">Sede principale</span>
             <div class="sede-header">
               <div class="sede-info">
                 <h3>📍 ${s.nome}</h3>
                 <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">${s.indirizzo}</p>
                 <div class="sede-details">
-                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari}</div>
+                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari || 'Su appuntamento'}</div>
                   <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:${s.telefono.replace(/\s/g,'')}" style="color:inherit;text-decoration:none">${s.telefono}</a></div>
-                  ${isPr ? '<div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>' : ''}
+                  <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
                 </div>
-                ${isPr && d.contatti ? `<div class="dove-social">
+                ${d.contatti ? `<div class="dove-social">
                   <a href="https://www.instagram.com/${d.contatti.instagram}/" target="_blank" class="ig-pers">💜 @${d.contatti.instagram}</a>
                   <a href="https://www.instagram.com/${d.contatti.instagram_studio}/" target="_blank" class="ig-studio">🌿 @${d.contatti.instagram_studio}</a>
                 </div>` : ''}
               </div>
               ${s.mappa_embed ? `<div class="sede-map"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
             </div>
-          </div>`;
-        }).join('');
+          </div>`).join('');
+
+        if (secondarie.length) {
+          html += '<div class="sedi-secondarie">' + secondarie.map((s, i) => `<div class="sede-card sede-secondaria reveal visible${i > 0 ? ' rd1' : ''}">
+              <div class="sede-info">
+                <h3>📍 ${s.nome}</h3>
+                <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">${s.indirizzo}</p>
+                <div class="sede-details">
+                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari || 'Su appuntamento'}</div>
+                  <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:${s.telefono.replace(/\s/g,'')}" style="color:inherit;text-decoration:none">${s.telefono}</a></div>
+                  <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
+                </div>
+              </div>
+              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
+            </div>`).join('') + '</div>';
+        }
+
+        container.innerHTML = html;
       }
     }
 
