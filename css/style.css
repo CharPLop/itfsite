@@ -211,6 +211,11 @@ section{padding:100px 24px}
 .ig-studio{background:#E8F0E4;color:#4A6741}.ig-studio:hover{background:#4A6741;color:#fff}
 /* dove-map: see .sede-map above */
 
+/* SEDI SECONDARIE */
+.sedi-secondarie{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sedi-secondarie .sede-card{padding:24px}
+.sedi-secondarie .sede-info h3{font-size:1.15rem;margin-bottom:8px}
+
 /* QUOTE */
 .quote-section{padding:80px 24px;background:var(--blush);text-align:center}
 .quote-text{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.2rem);font-style:italic;color:var(--lilla-mid);max-width:650px;margin:0 auto;line-height:1.5;font-weight:400}
@@ -246,6 +251,7 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   .sede-header{flex-direction:column}
   .chi-sidebar{position:static}
   .cosa-grid,.come-steps{grid-template-columns:1fr}
+  .sedi-secondarie{grid-template-columns:1fr}
   nav{padding:14px 20px}
   section{padding:70px 20px}
 }
