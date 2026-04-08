@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /sezioni_nascoste.html
 Sitemap: https://ileniatagliaferro.it/sitemap.xml
