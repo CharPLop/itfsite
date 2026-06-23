@@ -190,6 +190,7 @@ setTimeout(() => {
 function acceptCookies() {
   try { localStorage.setItem('cookies_accepted', 'true'); } catch (e) {}
   document.getElementById('cookieBanner').classList.remove('show');
+  try { loadGA(); } catch (e) {}
 }
 
 // === BLOG ARTICLE OVERLAY ===
