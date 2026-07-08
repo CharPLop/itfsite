@@ -28,24 +28,40 @@
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<!-- GOOGLE ANALYTICS 4 — caricato SOLO dopo consenso cookie (GDPR) -->
+<!-- GOOGLE ANALYTICS 4 — Consent Mode v2 (GDPR) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  // GA4 non parte finché l'utente non accetta i cookie analitici dal banner.
-  function loadGA(){
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
+
+  // 1) Default: nessun cookie finche l'utente non sceglie.
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500
+  });
+
+  // 2) Scelta gia espressa in una visita precedente.
+  try {
+    if (localStorage.getItem('cookie_consent') === 'granted') {
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+    }
+  } catch (e) {}
+
+  // 3) GA4 parte sempre. Senza consenso invia solo ping privi di cookie.
+  (function () {
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z0CZXPLDKG';
     document.head.appendChild(s);
-    gtag('js', new Date());
-    gtag('config', 'G-Z0CZXPLDKG', { anonymize_ip: true });
-  }
-  // Visite successive: se l'utente aveva già accettato, riattiva GA.
-  try { if (localStorage.getItem('cookies_accepted') === 'true') loadGA(); } catch(e){}
-  function trackWA(l) { gtag('event','whatsapp_click',{event_category:'contatto',event_label:l}); }
+  })();
+  gtag('js', new Date());
+  gtag('config', 'G-Z0CZXPLDKG');
+
+  function trackWA(l)    { gtag('event','whatsapp_click',{event_category:'contatto',event_label:l}); }
   function trackEmail(l) { gtag('event','email_click',{event_category:'contatto',event_label:l}); }
   function trackPhone(l) { gtag('event','phone_click',{event_category:'contatto',event_label:l}); }
 </script>
@@ -241,9 +257,12 @@
 </head>
   <body>
 <!-- COOKIE -->
-<div class="cookie-banner" id="cookieBanner">
-  <span>Questo sito utilizza cookie analitici. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
-  <button class="cookie-accept" onclick="acceptCookies()">Accetta</button>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consenso cookie">
+  <span>Questo sito usa cookie analitici per capire come viene usato. Puoi accettare o rifiutare: il sito funziona allo stesso modo. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
+  <div class="cookie-actions">
+    <button class="cookie-reject" onclick="setConsent(false)">Rifiuta</button>
+    <button class="cookie-accept" onclick="setConsent(true)">Accetta</button>
+  </div>
 </div>
 
 <!-- WA FLOAT -->
@@ -535,6 +554,7 @@
   </div>
   <div class="footer-line"></div>
   <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
+  <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
   <p class="footer-copy">&copy; 2026 Dottoressa Ilenia Tagliaferro — Brescia &bull; P.IVA: 04642290987</p>
 </footer>
 <script src="js/main.js"></script>

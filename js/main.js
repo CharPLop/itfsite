@@ -178,19 +178,27 @@ function toggleFaq(btn) {
   answer.classList.toggle('open', isOpen);
 }
 
-// === COOKIE BANNER ===
+// === COOKIE BANNER / CONSENT MODE v2 ===
 setTimeout(() => {
   try {
-    if (!localStorage.getItem('cookies_accepted')) {
+    if (!localStorage.getItem('cookie_consent')) {
       document.getElementById('cookieBanner').classList.add('show');
     }
   } catch (e) {}
-}, 2000);
+}, 200);
 
-function acceptCookies() {
-  try { localStorage.setItem('cookies_accepted', 'true'); } catch (e) {}
-  document.getElementById('cookieBanner').classList.remove('show');
-  try { loadGA(); } catch (e) {}
+function setConsent(granted) {
+  try { localStorage.setItem('cookie_consent', granted ? 'granted' : 'denied'); } catch (e) {}
+  const b = document.getElementById('cookieBanner');
+  if (b) b.classList.remove('show');
+  try { gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' }); } catch (e) {}
+}
+
+function revokeConsent() {
+  try { localStorage.removeItem('cookie_consent'); } catch (e) {}
+  try { gtag('consent', 'update', { analytics_storage: 'denied' }); } catch (e) {}
+  const b = document.getElementById('cookieBanner');
+  if (b) b.classList.add('show');
 }
 
 // === BLOG ARTICLE OVERLAY ===

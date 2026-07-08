@@ -31,6 +31,9 @@ body{font-family:var(--sans);color:var(--text);background:var(--warm-white);over
 .cookie-banner a{color:var(--lavanda)}
 .cookie-accept{padding:8px 24px;border-radius:30px;border:none;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:var(--lavanda);color:var(--lilla-dark);transition:.3s}
 .cookie-accept:hover{background:#fff}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-reject{padding:8px 24px;border-radius:30px;border:1px solid var(--lavanda);font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--lavanda);transition:.3s}
+.cookie-reject:hover{background:rgba(216,206,228,.14)}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
