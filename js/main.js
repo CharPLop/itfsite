@@ -9,20 +9,9 @@
     const set = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.textContent = val; };
     const setHTML = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.innerHTML = val; };
 
-    // Hero
-    if (d.hero) {
-      set('.hero-intro', d.hero.intro);
-      setHTML('.hero h1', `<strong>${d.hero.nome}</strong><em>${d.hero.sottotitolo}</em>`);
-      set('.hero-desc', d.hero.descrizione);
-      set('.hero-spec', d.hero.specialita);
-    }
-
-    // Chi sono
-    if (d.chi_sono) {
-      const chiPs = document.querySelectorAll('#chi-sono .section-text');
-      if (chiPs[0]) chiPs[0].textContent = d.chi_sono.paragrafo_1;
-      if (chiPs[1]) chiPs[1].textContent = d.chi_sono.paragrafo_2;
-    }
+    // Hero e "Chi sono": il testo ora è statico in index.html (UNICA fonte di verità).
+    // Rimosso l'override dal JSON per eliminare il doppio testo/flash all'avvio
+    // e per non dover aggiornare la qualifica in due punti diversi.
 
     // Servizi
     if (d.servizi && d.servizi.length) {
