@@ -110,9 +110,10 @@
     {
       "tipo": "secondaria",
       "nome": "Iseo",
-      "indirizzo": "Contattami per informazioni sulla sede",
+      "indirizzo": "Via della Cerca, 2 — 25049 Iseo (BS)",
       "orari": "Lunedì – Venerdì · 10:00 – 19:00",
-      "telefono": "392 821 5608"
+      "telefono": "392 821 5608",
+      "mappa_embed": "https://www.google.com/maps?q=Via+della+Cerca,+2,+25049+Iseo+BS&output=embed"
     }
   ],
   "contatti": {
