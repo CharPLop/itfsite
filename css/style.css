@@ -133,6 +133,22 @@ section{padding:100px 24px}
 .come-step h3{font-family:var(--serif);font-size:1.15rem;color:var(--lavanda);margin-bottom:10px;font-weight:500}
 .come-step p{font-size:.88rem;color:rgba(245,240,248,.6);line-height:1.7}
 
+/* EMDR */
+.approcci{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;position:relative;z-index:2}
+.approccio{padding:28px 24px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:all .35s}
+.approccio:hover{background:rgba(255,255,255,.1);border-color:rgba(216,206,228,.2);transform:translateY(-4px)}
+.approccio h3{font-family:var(--serif);font-size:1.15rem;color:var(--lavanda);margin-bottom:10px;font-weight:500}
+.approccio p{font-size:.88rem;color:rgba(245,240,248,.6);line-height:1.7}
+.metafora{margin-top:28px;padding:36px 32px;border-radius:20px;background:rgba(255,255,255,.05);border:1px solid rgba(216,206,228,.12);border-left:3px solid var(--lilla-light);position:relative;z-index:2}
+.metafora h3{font-family:var(--serif);font-size:1.4rem;color:var(--lavanda);margin-bottom:18px;font-weight:500}
+.metafora p{font-size:.95rem;color:rgba(245,240,248,.72);line-height:1.85;max-width:780px}
+.metafora p+p{margin-top:14px}
+.metafora-quote{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--lilla-pale);line-height:1.55;margin-top:22px;padding-top:20px;border-top:1px solid rgba(216,206,228,.12)}
+.come-sub-label{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--lilla-pale);font-weight:600;margin-top:56px;position:relative;z-index:2}
+.metafora-link{display:inline-block;margin-top:20px;font-size:.85rem;font-weight:600;color:var(--lavanda);text-decoration:none;border-bottom:1px solid rgba(216,206,228,.35);padding-bottom:3px;transition:all .3s}
+.metafora-link:hover{color:#fff;border-bottom-color:#fff}
+.come-steps{margin-top:24px}
+
 /* PRENOTA */
 .prenota{background:linear-gradient(160deg,var(--blush) 0%,#EDE6F5 50%,#F0EBF5 100%)}
 .prenota-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -256,7 +272,9 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   .sede-row{grid-template-columns:1fr}
   .sede-header{flex-direction:column}
   .chi-sidebar{position:static}
-  .cosa-grid,.come-steps{grid-template-columns:1fr}
+  .cosa-grid,.come-steps,.approcci{grid-template-columns:1fr}
+  .metafora{padding:28px 22px}
+  .metafora h3{font-size:1.25rem}
   .sedi-secondarie{grid-template-columns:1fr}
   nav{padding:14px 20px}
   section{padding:70px 20px}
