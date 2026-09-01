@@ -1,0 +1,15 @@
+# Normalizzazione fine riga: nel repo sempre LF, anche su Windows
+* text=auto eol=lf
+
+# File binari: mai toccare i byte (evita PDF/immagini corrotti da conversione CRLF)
+*.pdf   -text
+*.png   -text
+*.jpg   -text
+*.jpeg  -text
+*.gif   -text
+*.webp  -text
+*.ico   -text
+*.woff  -text
+*.woff2 -text
+*.ttf   -text
+*.otf   -text
