@@ -3,8 +3,8 @@
   --lilla-light:#8E76A4; --lilla-pale:#B5A3C7; --lavanda:#D8CEE4;
   --blush:#F5F0F8; --warm-white:#FDFBFF; --text:#2A2533;
   --text-light:#5E576A; --text-muted:#9B93A7; --whatsapp:#25D366;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Outfit','Segoe UI',sans-serif;
+  --serif:'Cormorant Garamond','Cormorant Fallback',Georgia,serif;
+  --sans:'Outfit','Outfit Fallback','Segoe UI',sans-serif;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}

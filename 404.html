@@ -7,14 +7,15 @@
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://ileniatagliaferro.it/">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
 <style>
 :root {
   --lilla-dark:#2E2240; --lilla-primary:#48365A; --lilla-mid:#654E78;
   --lilla-light:#8E76A4; --lilla-pale:#B5A3C7; --lavanda:#D8CEE4;
   --blush:#F5F0F8; --warm-white:#FDFBFF;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --sans:'Outfit','Segoe UI',sans-serif;
+  --serif:'Cormorant Garamond','Cormorant Fallback',Georgia,serif;
+  --sans:'Outfit','Outfit Fallback','Segoe UI',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--sans);background:var(--warm-white);color:var(--lilla-dark);min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}
