@@ -16,45 +16,40 @@
 <meta property="og:url" content="https://ileniatagliaferro.it/emdr.html">
 <meta property="og:locale" content="it_IT">
 
+<meta name="theme-color" content="#FDFBFF">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-600-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin-400-normal.woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
 
-<!-- GOOGLE ANALYTICS 4 — Consent Mode v2 (GDPR) -->
+<!-- GOOGLE ANALYTICS 4 — caricato SOLO dopo il consenso (vedi js/main.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  window.GA_ID = 'G-Z0CZXPLDKG';
+  window.gaLoaded = false;
 
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
-
-  try {
-    if (localStorage.getItem('cookie_consent') === 'granted') {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-  } catch (e) {}
-
-  (function () {
+  // Prima del consenso il sito non contatta googletagmanager.com in alcun modo.
+  function loadGA(){
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z0CZXPLDKG';
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
     document.head.appendChild(s);
-  })();
-  gtag('js', new Date());
-  gtag('config', 'G-Z0CZXPLDKG');
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'granted', functionality_storage: 'granted', security_storage: 'granted'
+    });
+    gtag('config', window.GA_ID, { anonymize_ip: true });
+  }
 
-  function trackWA(l)    { gtag('event','whatsapp_click',{event_category:'contatto',event_label:l}); }
-  function trackEmail(l) { gtag('event','email_click',{event_category:'contatto',event_label:l}); }
-  function trackPhone(l) { gtag('event','phone_click',{event_category:'contatto',event_label:l}); }
+  function trackEv(n,p){ if (window.gaLoaded) { gtag('event', n, p || {}); } }
+  function trackWA(l)    { trackEv('whatsapp_click',{event_category:'contatto',event_label:l}); }
+  function trackEmail(l) { trackEv('email_click',{event_category:'contatto',event_label:l}); }
+  function trackPhone(l) { trackEv('phone_click',{event_category:'contatto',event_label:l}); }
 </script>
 
 <link rel="stylesheet" href="css/style.css">
@@ -125,6 +120,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main-emdr">Vai al contenuto</a>
+
 <!-- COOKIE -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consenso cookie">
   <span>Questo sito usa cookie analitici per capire come viene usato. Puoi accettare o rifiutare: il sito funziona allo stesso modo. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
@@ -143,7 +140,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-brand">
-    <img src="images/logo-ilenia.png" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img">
+    <img src="images/logo-ilenia-sm.png" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img">
     <span class="nav-name">Dott.ssa Ilenia Tagliaferro</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -153,11 +150,11 @@
     <li><a href="index.html#prenota" onclick="closeNav()">Prenota</a></li>
     <li><a href="index.html#dove-siamo" onclick="closeNav()">Sedi</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
-<header class="sub-hero">
+<header class="sub-hero" id="main-emdr">
   <div class="container">
     <div class="section-label reveal">EMDR</div>
     <h1 class="reveal">La mente, come il corpo,<br>sa <em>ripararsi da sola</em></h1>
@@ -199,7 +196,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="images/logo-ilenia-footer.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
+  <img src="images/logo-ilenia-footer-sm.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Specializzanda in Psicoterapia CBT &bull; Brescia</p>
   <div class="footer-links">
@@ -208,8 +205,8 @@
     <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
   </div>
   <div class="footer-line"></div>
-  <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
-  <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
+  <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
+  <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
   <p class="footer-copy">&copy; 2026 Dottoressa Ilenia Tagliaferro — Brescia &bull; P.IVA: 04642290987</p>
 </footer>
 

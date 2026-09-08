@@ -56,7 +56,7 @@
                   <a href="https://www.instagram.com/${d.contatti.instagram_studio}/" target="_blank" class="ig-studio">🌿 @${d.contatti.instagram_studio}</a>
                 </div>` : ''}
               </div>
-              ${s.mappa_embed ? `<div class="sede-map"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
+              ${s.mappa_embed ? `<div class="sede-map"><button type="button" class="map-load" data-map="${s.mappa_embed}">Mostra mappa<span>Caricando la mappa accetti i contenuti di Google</span></button></div>` : ''}
             </div>
           </div>`).join('');
 
@@ -71,7 +71,7 @@
                   <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
                 </div>
               </div>
-              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" allowfullscreen loading="lazy"></iframe></div>` : ''}
+              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><button type="button" class="map-load" data-map="${s.mappa_embed}">Mostra mappa<span>Caricando la mappa accetti i contenuti di Google</span></button></div>` : ''}
             </div>`).join('') + '</div>';
         }
 
@@ -129,14 +129,19 @@ window.addEventListener('scroll', () => {
 
 function toggleNav() {
   var nav = document.getElementById('nav');
-  nav.classList.toggle('nav-open');
-  document.querySelector('.hamburger').classList.toggle('active');
-  document.body.style.overflow = nav.classList.contains('nav-open') ? 'hidden' : '';
+  var open = nav.classList.toggle('nav-open');
+  var h = document.querySelector('.hamburger');
+  h.classList.toggle('active');
+  h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
 }
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
 
 function closeNav() {
   document.getElementById('nav').classList.remove('nav-open');
-  document.querySelector('.hamburger').classList.remove('active');
+  var h = document.querySelector('.hamburger');
+  h.classList.remove('active');
+  h.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
 }
 
@@ -165,6 +170,7 @@ function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
   const isOpen = btn.classList.toggle('open');
   answer.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
 // === COOKIE BANNER / CONSENT MODE v2 ===
@@ -180,8 +186,15 @@ function setConsent(granted) {
   try { localStorage.setItem('cookie_consent', granted ? 'granted' : 'denied'); } catch (e) {}
   const b = document.getElementById('cookieBanner');
   if (b) b.classList.remove('show');
-  try { gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' }); } catch (e) {}
+  if (granted) {
+    try { loadGA(); } catch (e) {}
+  } else {
+    try { gtag('consent', 'update', { analytics_storage: 'denied' }); } catch (e) {}
+  }
 }
+
+// se il consenso era gia stato dato in una visita precedente, carica GA ora
+try { if (localStorage.getItem('cookie_consent') === 'granted') loadGA(); } catch (e) {}
 
 function revokeConsent() {
   try { localStorage.removeItem('cookie_consent'); } catch (e) {}
@@ -245,7 +258,24 @@ if (form) {
       }
     })
     .catch(() => {
-      alert("Errore nell'invio. Riprova o contattaci su WhatsApp.");
+      var err = document.getElementById('formError');
+      if (err) { err.style.display = 'block'; err.textContent = "Non sono riuscita a inviare il messaggio. Scrivimi su WhatsApp al 392 821 5608."; }
     });
   });
 }
+
+// === MAPPE: caricate solo dopo un click esplicito (privacy) ===
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest ? e.target.closest('.map-load') : null;
+  if (!btn) return;
+  var slot = btn.parentElement;
+  var iframe = document.createElement('iframe');
+  iframe.src = btn.getAttribute('data-map');
+  iframe.title = 'Mappa della sede';
+  iframe.loading = 'lazy';
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  slot.innerHTML = '';
+  slot.appendChild(iframe);
+  try { trackEv('map_open', { event_category: 'sedi' }); } catch (err) {}
+});
