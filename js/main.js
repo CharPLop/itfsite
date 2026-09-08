@@ -56,7 +56,7 @@
                   <a href="https://www.instagram.com/${d.contatti.instagram_studio}/" target="_blank" class="ig-studio">🌿 @${d.contatti.instagram_studio}</a>
                 </div>` : ''}
               </div>
-              ${s.mappa_embed ? `<div class="sede-map"><button type="button" class="map-load" data-map="${s.mappa_embed}">Mostra mappa<span>Caricando la mappa accetti i contenuti di Google</span></button></div>` : ''}
+              ${s.mappa_embed ? `<div class="sede-map"><iframe src="${s.mappa_embed}" title="Mappa della sede ${s.nome}" allowfullscreen loading="lazy"></iframe></div>` : ''}
             </div>
           </div>`).join('');
 
@@ -71,7 +71,7 @@
                   <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
                 </div>
               </div>
-              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><button type="button" class="map-load" data-map="${s.mappa_embed}">Mostra mappa<span>Caricando la mappa accetti i contenuti di Google</span></button></div>` : ''}
+              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" title="Mappa della sede ${s.nome}" allowfullscreen loading="lazy"></iframe></div>` : ''}
             </div>`).join('') + '</div>';
         }
 
@@ -263,19 +263,3 @@ if (form) {
     });
   });
 }
-
-// === MAPPE: caricate solo dopo un click esplicito (privacy) ===
-document.addEventListener('click', function (e) {
-  var btn = e.target.closest ? e.target.closest('.map-load') : null;
-  if (!btn) return;
-  var slot = btn.parentElement;
-  var iframe = document.createElement('iframe');
-  iframe.src = btn.getAttribute('data-map');
-  iframe.title = 'Mappa della sede';
-  iframe.loading = 'lazy';
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.referrerPolicy = 'no-referrer-when-downgrade';
-  slot.innerHTML = '';
-  slot.appendChild(iframe);
-  try { trackEv('map_open', { event_category: 'sedi' }); } catch (err) {}
-});

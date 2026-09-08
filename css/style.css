@@ -346,21 +346,5 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   .wa-float{animation:none}
 }
 
-/* mappe: caricate solo su click (niente contatto con Google senza consenso) */
-.map-load{
-  width:100%;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
-  background:linear-gradient(160deg,var(--blush) 0%,#F0EBF5 100%);
-  border:none;border-radius:14px;cursor:pointer;font-family:var(--sans);font-size:.92rem;font-weight:600;
-  color:var(--lilla-primary);transition:background .3s;padding:16px
-}
-.sede-principale .map-load{min-height:280px}
-.map-load span{font-weight:400;font-size:.78rem;color:var(--text-light);max-width:26ch;line-height:1.5;text-align:center}
-.map-load:hover{background:var(--lavanda)}
-
-/* form: avviso e consenso */
-.form-notice{font-size:.82rem;line-height:1.6;color:var(--text-light);background:var(--blush);border-left:3px solid var(--lilla-light);border-radius:0 8px 8px 0;padding:10px 14px;margin:4px 0 14px}
-.form-consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:6px}
-.form-consent input{width:18px;height:18px;flex-shrink:0;margin-top:3px;accent-color:var(--lilla-primary)}
-.form-consent label{font-size:.82rem;line-height:1.55;color:var(--text-light);font-weight:400}
-.form-consent a{color:var(--lilla-mid)}
+/* messaggio di errore del form (al posto di alert()) */
 .form-error{display:none;margin-top:12px;font-size:.88rem;font-weight:600;color:#A02D2D;text-align:center}
