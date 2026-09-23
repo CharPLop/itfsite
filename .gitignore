@@ -3,3 +3,7 @@
 
 # Backup temporanei
 *.bak
+
+# Materiale locale non pubblicabile (foto di terzi, output Claude)
+_privato/
+Claude outputs/

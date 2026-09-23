@@ -9,10 +9,7 @@ itf-assets/
 ├── foto/
 │   ├── ilenia_blazer_lilla.jpeg      ← 1320x1635, ritratto, MIGLIORE per IG
 │   ├── ilenia_camicia_ritratto.jpeg   ← 1320x1746, ritratto, buona per post
-│   ├── ilenia_camicia_landscape.jpeg  ← 1319x879, landscape, ok per story
-│   ├── gruppo_psiche_holos.jpeg       ← Ilenia + Anna + Valentina
-│   ├── anna_marini.jpeg               ← Professionista PH
-│   └── valentina_nicolai.jpeg         ← Professionista PH
+│   └── ilenia_camicia_landscape.jpeg  ← 1319x879, landscape, ok per story
 ├── loghi/
 │   ├── logo_it_scuro.png             ← Viola scuro + foglie (biglietto/volantino)
 │   ├── logo_it_lilla.png             ← Lilla chiaro (footer sponsorizzata)
@@ -34,6 +31,9 @@ itf-assets/
     ├── ig_blazer_post.html           ← Template HTML post blazer
     └── volantino_A5.html             ← Template HTML volantino
 ```
+
+> Le foto di altre persone (colleghe Psiche Holos) non vanno nel repo pubblico:
+> sono in `_privato/foto-terzi/` in locale, esclusa da git.
 
 ## Palette colori
 
