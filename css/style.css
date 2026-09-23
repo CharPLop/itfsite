@@ -28,6 +28,7 @@ body{font-family:var(--sans);color:var(--text);background:var(--warm-white);over
 /* COOKIE */
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--lilla-dark);color:rgba(245,240,248,.85);padding:18px 24px;display:flex;align-items:center;justify-content:center;gap:20px;font-size:.85rem;transform:translateY(100%);visibility:hidden;transition:transform .5s,visibility 0s .5s;flex-wrap:wrap}
 .cookie-banner.show{transform:translateY(0);visibility:visible;transition:transform .5s,visibility 0s}
+body:has(.cookie-banner.show) .wa-float{transform:translateY(-150px)}
 @media(min-width:601px){body:has(.cookie-banner.show) .wa-float{transform:translateY(-80px)}}
 .cookie-banner a{color:var(--lavanda)}
 .cookie-accept{padding:8px 24px;border-radius:30px;border:none;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:var(--lavanda);color:var(--lilla-dark);transition:.3s}
