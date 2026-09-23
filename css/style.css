@@ -262,10 +262,13 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   nav.nav-open .hamburger{position:absolute;top:18px;right:20px}
   nav.nav-open .nav-links{display:flex;flex-direction:column;align-items:center;gap:28px;list-style:none}
   nav.nav-open .nav-links a{font-size:1.3rem}
-  .hero{overflow:visible;min-height:auto;padding-top:100px;padding-bottom:60px}
+  .hero{overflow:visible;min-height:auto;padding-top:96px;padding-bottom:48px}
+  .hero h1{font-size:2.15rem}
+  .hero-desc{font-size:1rem;margin-bottom:6px}
+  .hero-spec{margin-bottom:22px}
   .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-visual{order:-1}
-  .hero-card{width:270px;height:320px;border-radius:22px}
+  .hero-visual{order:2}
+  .hero-card{width:240px;height:280px;border-radius:22px}
   .hero-card-placeholder{width:70px;height:70px}
   .hero-card-placeholder svg{width:34px;height:34px}
   .chi-content,.prenota-inner{grid-template-columns:1fr}
