@@ -25,12 +25,14 @@
 <meta property="og:locale" content="it_IT">
 
 <meta name="theme-color" content="#FDFBFF">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-600-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin-400-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin-600-normal.woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css?v=20260923b">
 
 <!-- GOOGLE ANALYTICS 4 — caricato SOLO dopo il consenso (vedi js/main.js) -->
@@ -167,7 +169,12 @@
     "image": "https://ileniatagliaferro.it/images/foto-ilenia-v2.jpg",
     "url": "https://ileniatagliaferro.it/",
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "Università Cattolica del Sacro Cuore" },
-    "memberOf": { "@type": "Organization", "name": "Ordine degli Psicologi della Lombardia" },
+    "memberOf": { "@type": "Organization", "name": "Ordine degli Psicologi della Lombardia"
+      },
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "Numero iscrizione Ordine degli Psicologi della Lombardia",
+        "value": "26441" },
     "knowsAbout": [
       "Psicoterapia Cognitivo-Comportamentale",
       "Schema Therapy",
@@ -266,6 +273,7 @@
 }
 </script>
 
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
   <body>
 <a class="skip-link" href="#contenuto">Vai al contenuto</a>
@@ -274,16 +282,11 @@
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consenso cookie">
   <span>Questo sito usa cookie analitici per capire come viene usato. Puoi accettare o rifiutare: il sito funziona allo stesso modo. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
   <div class="cookie-actions">
-    <button class="cookie-reject" onclick="setConsent(false)">Rifiuta</button>
-    <button class="cookie-accept" onclick="setConsent(true)">Accetta</button>
+    <button type="button" class="cookie-reject" onclick="setConsent(false)">Rifiuta</button>
+    <button type="button" class="cookie-accept" onclick="setConsent(true)">Accetta</button>
   </div>
 </div>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" class="wa-float" onclick="trackWA('float')">
-  <span class="wa-float-label">Scrivimi su WhatsApp</span>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
 
 <!-- NAV -->
 <nav id="nav">
@@ -301,7 +304,7 @@
     <!-- <li><a href="#blog" onclick="closeNav()">Blog</a></li> -->
     <li><a href="#dove-siamo" onclick="closeNav()">Sedi</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
 
 <main id="contenuto">
@@ -317,13 +320,13 @@
       <p class="hero-desc">Accompagno bambini, adolescenti e adulti a ritrovare equilibrio e costruire nuove risorse per affrontare la quotidianità.</p>
       <p class="hero-spec">Ansia &bull; Difficoltà emotive &bull; Difficoltà relazionali &bull; Brescia &bull; Iseo/Rovato</p>
       <div class="hero-cta">
-        <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20prenotare%20un%20appuntamento" target="_blank" class="btn btn-wa" onclick="trackWA('hero')">💬 Scrivimi su WhatsApp</a>
+        <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20prenotare%20un%20appuntamento" target="_blank" rel="noopener noreferrer" class="btn btn-wa" onclick="trackWA('hero')">💬 Scrivimi su WhatsApp</a>
         <a href="#chi-sono" class="btn btn-ghost">Scopri di più</a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-card has-photo">
-        <img src="images/foto-ilenia-v2.jpg" width="720" height="840" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro, psicologa clinica a Brescia">
+        <img src="images/foto-ilenia-v2.jpg" width="720" height="840" fetchpriority="high" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro, psicologa clinica a Brescia">
         <div class="hero-card-placeholder">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
         </div>
@@ -342,7 +345,7 @@
         <div class="section-label reveal">Chi Sono</div>
         <h2 class="section-title reveal">Psicologa clinica,<br>specializzanda in <em>psicoterapia cognitivo-comportamentale</em></h2>
         <div class="section-line reveal"></div>
-        <p class="section-text reveal">Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica, specializzanda in psicoterapia cognitivo-comportamentale, iscritta all'Ordine degli Psicologi della Lombardia. Mi sono laureata in Psicologia dello Sviluppo e dei Processi di Tutela presso l'Università Cattolica del Sacro Cuore di Milano.</p>
+        <p class="section-text reveal">Sono la Dott.ssa Ilenia Tagliaferro, psicologa clinica, specializzanda in psicoterapia cognitivo-comportamentale, iscritta all'Ordine degli Psicologi della Lombardia (n. 26441). Mi sono laureata in Psicologia dello Sviluppo e dei Processi di Tutela presso l'Università Cattolica del Sacro Cuore di Milano.</p>
         <p class="section-text reveal" style="margin-top:16px">Mi occupo della presa in carico di bambini, adolescenti e adulti, offrendo percorsi personalizzati orientati alla conoscenza di sé e alla promozione del benessere psicologico. Credo nell'importanza di costruire uno spazio sicuro, accogliente e non giudicante, in cui la persona possa sentirsi ascoltata e compresa.</p>
         <div class="chi-highlights">
           <div class="chi-highlight reveal"><h3>Studio privato</h3><p>Sedute individuali a Brescia e online, in uno spazio riservato e accogliente.</p></div>
@@ -383,14 +386,14 @@
     <h2 class="section-title reveal">Mi occupo di <em>ansia, difficoltà emotive e relazionali</em></h2>
     <div class="section-line reveal"></div>
     <div class="cosa-grid">
-      <div class="cosa-card reveal"><span class="cosa-card-icon">😟</span><h3>Ansia e attacchi di panico</h3><p>Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci.</p></div>
-      <div class="cosa-card reveal rd1"><span class="cosa-card-icon">💔</span><h3>Difficoltà emotive</h3><p>Regolazione emotiva: riconoscere, accettare e gestire le emozioni.</p></div>
-      <div class="cosa-card reveal rd2"><span class="cosa-card-icon">🤝🏻</span><h3>Difficoltà relazionali</h3><p>Supporto per costruire legami più sani in famiglia, lavoro, amicizie.</p></div>
-      <div class="cosa-card reveal rd3"><span class="cosa-card-icon">🧒🏻</span><h3>Infanzia e adolescenza</h3><p>Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita.</p></div>
-      <div class="cosa-card reveal"><span class="cosa-card-icon">👨🏻‍👩🏻‍👧🏻</span><h3>Sostegno genitoriale</h3><p>Accompagnamento nelle difficoltà educative e relazionali.</p></div>
-      <div class="cosa-card reveal rd1"><span class="cosa-card-icon">🧩</span><h3>Schema Therapy</h3><p>Lavoro sugli schemi emotivi profondi per chi sente di ripetere sempre gli stessi pattern nelle relazioni e nella vita.</p></div>
-      <div class="cosa-card reveal rd2"><span class="cosa-card-icon">🌊</span><h3>EMDR</h3><p>Rielaborazione dei ricordi legati a esperienze traumatiche o stressanti rimasti bloccati nel tempo.</p></div>
-      <div class="cosa-card reveal rd3"><span class="cosa-card-icon">🖥️</span><h3>Sedute online</h3><p>Psicoterapia a distanza con la stessa qualità dello studio.</p></div>
+      <div class="cosa-card reveal"><span class="cosa-card-icon" aria-hidden="true">😟</span><h3>Ansia e attacchi di panico</h3><p>Percorsi strutturati per comprendere e gestire l'ansia con strumenti efficaci.</p></div>
+      <div class="cosa-card reveal rd1"><span class="cosa-card-icon" aria-hidden="true">💔</span><h3>Difficoltà emotive</h3><p>Regolazione emotiva: riconoscere, accettare e gestire le emozioni.</p></div>
+      <div class="cosa-card reveal rd2"><span class="cosa-card-icon" aria-hidden="true">🤝🏻</span><h3>Difficoltà relazionali</h3><p>Supporto per costruire legami più sani in famiglia, lavoro, amicizie.</p></div>
+      <div class="cosa-card reveal rd3"><span class="cosa-card-icon" aria-hidden="true">🧒🏻</span><h3>Infanzia e adolescenza</h3><p>Percorsi dedicati ai più giovani, calibrati su ogni fase della crescita.</p></div>
+      <div class="cosa-card reveal"><span class="cosa-card-icon" aria-hidden="true">👨🏻‍👩🏻‍👧🏻</span><h3>Sostegno genitoriale</h3><p>Accompagnamento nelle difficoltà educative e relazionali.</p></div>
+      <div class="cosa-card reveal rd1"><span class="cosa-card-icon" aria-hidden="true">🧩</span><h3>Schema Therapy</h3><p>Lavoro sugli schemi emotivi profondi per chi sente di ripetere sempre gli stessi pattern nelle relazioni e nella vita.</p></div>
+      <div class="cosa-card reveal rd2"><span class="cosa-card-icon" aria-hidden="true">🌊</span><h3>EMDR</h3><p>Rielaborazione dei ricordi legati a esperienze traumatiche o stressanti rimasti bloccati nel tempo.</p></div>
+      <div class="cosa-card reveal rd3"><span class="cosa-card-icon" aria-hidden="true">🖥️</span><h3>Sedute online</h3><p>Psicoterapia a distanza con la stessa qualità dello studio.</p></div>
     </div>
   </div>
 </section>
@@ -441,7 +444,7 @@
         <div class="section-line reveal"></div>
         <p class="section-text reveal">Non serve aver chiaro cosa dire. La prima seduta è uno spazio per conoscersi e costruire insieme un percorso possibile.</p>
         <div class="prenota-methods">
-          <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20prenotare%20un%20primo%20appuntamento" target="_blank" class="prenota-method reveal" onclick="trackWA('prenota')">
+          <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20prenotare%20un%20primo%20appuntamento" target="_blank" rel="noopener noreferrer" class="prenota-method reveal" onclick="trackWA('prenota')">
             <div class="pm-icon pm-wa">💬</div>
             <div><h3>WhatsApp</h3><p>Scrivimi — rispondo in giornata</p></div>
           </a>
@@ -449,7 +452,7 @@
             <div class="pm-icon pm-email">✉️</div>
             <div><h3>Email</h3><p>studio@ileniatagliaferro.it</p></div>
           </a>
-          <a href="tel:3928215608" class="prenota-method reveal rd2" onclick="trackPhone('prenota')">
+          <a href="tel:+393928215608" class="prenota-method reveal rd2" onclick="trackPhone('prenota')">
             <div class="pm-icon pm-phone">📞</div>
             <div><h3>Telefono</h3><p>392 821 5608</p></div>
           </a>
@@ -457,11 +460,11 @@
       </div>
       <div class="prenota-card reveal">
         <h3>💜 Informazioni utili</h3>
-        <div class="prenota-card-item"><span>🕐</span> Su appuntamento</div>
-        <div class="prenota-card-item"><span>🖥️</span> Disponibili sedute online</div>
-        <div class="prenota-card-item"><span>⏱️</span> Sedute di ~60 minuti</div>
-        <div class="prenota-card-item"><span>📍</span> Via Zadei, 60 — Brescia</div>
-        <div class="prenota-card-item"><span>🔒</span> Massima riservatezza</div>
+        <div class="prenota-card-item"><span aria-hidden="true">🕐</span> Su appuntamento</div>
+        <div class="prenota-card-item"><span aria-hidden="true">🖥️</span> Disponibili sedute online</div>
+        <div class="prenota-card-item"><span aria-hidden="true">⏱️</span> Sedute di ~60 minuti</div>
+        <div class="prenota-card-item"><span aria-hidden="true">📍</span> Via Zadei, 60 — Brescia</div>
+        <div class="prenota-card-item"><span aria-hidden="true">🔒</span> Massima riservatezza</div>
       </div>
       <!-- CONTACT FORM -->
       <div class="contact-form reveal" style="grid-column: 1 / -1;">
@@ -507,14 +510,14 @@
     <h2 class="section-title reveal">Tutto quello che <em>vuoi sapere</em></h2>
     <div class="section-line reveal"></div>
     <div class="faq-list">
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Come funziona il primo appuntamento?</button><div class="faq-a">Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 60 minuti.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Quanto dura un percorso?</button><div class="faq-a">Non esiste una durata standard. La frequenza delle sedute viene concordata in base alle esigenze individuali, nel rispetto dei tempi di ciascuno.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Cos'è la CBT?</button><div class="faq-a">La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Cos'è la Schema Therapy?</button><div class="faq-a">La Schema Therapy aiuta a capire perché certi schemi emotivi e relazionali si ripetono nella nostra vita, anche quando vorremmo che le cose andassero diversamente. Lavora sulle radici profonde del disagio: i modelli emotivi sviluppati nel tempo che, senza che ce ne accorgiamo, continuano a guidare le nostre reazioni da adulti. È particolarmente utile per chi fatica nelle relazioni, con l'autostima o si ritrova in situazioni di blocco difficili da spiegare.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Cos'è l'EMDR?</button><div class="faq-a">Un approccio psicoterapeutico riconosciuto a livello internazionale per il trattamento del trauma e delle esperienze di vita stressanti. Aiuta la mente a rielaborare i ricordi rimasti bloccati, riducendo il disagio che continuano a provocare nel presente. <a href="emdr.html" style="color:var(--lilla-mid)">Approfondisci</a></div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Fai anche sedute online?</button><div class="faq-a">Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Quanto costa una seduta?</button><div class="faq-a">Una seduta costa 70 €.</div></div>
-      <div class="faq-item reveal"><button class="faq-q" onclick="toggleFaq(this)">Come posso prenotare?</button><div class="faq-a">Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Come funziona il primo appuntamento?</button><div class="faq-a">Il primo colloquio è un momento di conoscenza. Si racconta il motivo per cui si è chiesto aiuto, con i propri tempi. Dura circa 60 minuti.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura un percorso?</button><div class="faq-a">Non esiste una durata standard. La frequenza delle sedute viene concordata in base alle esigenze individuali, nel rispetto dei tempi di ciascuno.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Cos'è la CBT?</button><div class="faq-a">La Terapia Cognitivo-Comportamentale è un approccio scientificamente validato che lavora sul legame tra pensieri, emozioni e comportamenti per costruire strategie più funzionali.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Cos'è la Schema Therapy?</button><div class="faq-a">La Schema Therapy aiuta a capire perché certi schemi emotivi e relazionali si ripetono nella nostra vita, anche quando vorremmo che le cose andassero diversamente. Lavora sulle radici profonde del disagio: i modelli emotivi sviluppati nel tempo che, senza che ce ne accorgiamo, continuano a guidare le nostre reazioni da adulti. È particolarmente utile per chi fatica nelle relazioni, con l'autostima o si ritrova in situazioni di blocco difficili da spiegare.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Cos'è l'EMDR?</button><div class="faq-a">Un approccio psicoterapeutico riconosciuto a livello internazionale per il trattamento del trauma e delle esperienze di vita stressanti. Aiuta la mente a rielaborare i ricordi rimasti bloccati, riducendo il disagio che continuano a provocare nel presente. <a href="emdr.html" style="color:var(--lilla-mid)">Approfondisci</a></div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Fai anche sedute online?</button><div class="faq-a">Sì, offro sedute online tramite videochiamata con la stessa qualità e riservatezza delle sedute in presenza.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Quanto costa una seduta?</button><div class="faq-a">Una seduta costa 70 €.</div></div>
+      <div class="faq-item reveal"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Come posso prenotare?</button><div class="faq-a">Scrivimi su WhatsApp, email o chiamami. Ti rispondo in giornata per fissare un primo appuntamento.</div></div>
     </div>
   </div>
 </section>
@@ -540,9 +543,9 @@
             <h3>📍 Brescia — Studio Psiche Holos</h3>
             <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Via Guido Zadei, 60 — 25123 Brescia (BS)</p>
             <div class="sede-details">
-              <div class="sede-detail"><span class="sede-detail-icon">🕐</span> Lun – Ven · 10:00 – 19:00 · Su appuntamento</div>
-              <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:3928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
-              <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🕐</span> Lun – Ven · 10:00 – 19:00 · Su appuntamento</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">📱</span> <a href="tel:+393928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🖥️</span> Anche online</div>
             </div>
           </div>
           <div class="sede-map">
@@ -556,11 +559,11 @@
         <div class="sede-card sede-secondaria reveal">
           <div class="sede-info">
             <h3>📍 Rovato — Studio di Psicologia e Psicoterapia</h3>
-            <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Piazza Giuseppe Garibaldi, 12 — Rovato (BS)</p>
+            <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Piazza Giuseppe Garibaldi, 12 — 25038 Rovato (BS)</p>
             <div class="sede-details">
-              <div class="sede-detail"><span class="sede-detail-icon">🕐</span> Lun – Ven · 10:00 – 19:00</div>
-              <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:3928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
-              <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🕐</span> Lun – Ven · 10:00 – 19:00</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">📱</span> <a href="tel:+393928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🖥️</span> Anche online</div>
             </div>
           </div>
           <div class="sede-map sede-map-small">
@@ -572,9 +575,9 @@
             <h3>📍 Iseo — Studio di Psicologia e Psicoterapia</h3>
             <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Via della Cerca, 2 — 25049 Iseo (BS)</p>
             <div class="sede-details">
-              <div class="sede-detail"><span class="sede-detail-icon">🕐</span> Lun – Ven · 10:00 – 19:00</div>
-              <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:3928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
-              <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🕐</span> Lun – Ven · 10:00 – 19:00</div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">📱</span> <a href="tel:+393928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
+              <div class="sede-detail"><span class="sede-detail-icon" aria-hidden="true">🖥️</span> Anche online</div>
             </div>
           </div>
           <div class="sede-map sede-map-small"><iframe src="https://www.google.com/maps?q=Via+della+Cerca,+2,+25049+Iseo+BS&output=embed" title="Mappa dello studio di Iseo" allowfullscreen loading="lazy"></iframe></div>
@@ -592,16 +595,23 @@
   <img src="images/logo-ilenia-footer-sm.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Specializzanda in Psicoterapia CBT &bull; Brescia</p>
+  <p class="footer-albo">Iscritta all'Ordine degli Psicologi della Lombardia n. 26441</p>
   <div class="footer-links">
     <a href="#chi-sono">Chi Sono</a><a href="#cosa-faccio">Cosa Faccio</a><a href="#come-lavoro">Come Lavoro</a>
     <a href="#prenota">Prenota</a><!-- <a href="#blog">Blog</a> --><a href="emdr.html">EMDR</a><a href="ansia-attacchi-di-panico.html">Ansia e panico</a><a href="psicologa-bambini-adolescenti.html">Bambini e ragazzi</a><a href="psicologa-online.html">Sedute online</a><a href="#faq">FAQ</a><a href="#dove-siamo">Sedi</a>
-    <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank" rel="noopener noreferrer">Instagram</a>
   </div>
   <div class="footer-line"></div>
   <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
   <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
   <p class="footer-copy">&copy; 2026 Dottoressa Ilenia Tagliaferro — Brescia &bull; P.IVA: 04642290987</p>
 </footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" rel="noopener noreferrer" class="wa-float" onclick="trackWA('float')">
+  <span class="wa-float-label">Scrivimi su WhatsApp</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <script src="js/main.js?v=20260923b"></script>
 </body>
 </html>
