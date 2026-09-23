@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /sezioni_nascoste.html
+Disallow: /PROGETTO.md
+Disallow: /GUIDA.pdf
+Disallow: /assets/foto/
+Disallow: /assets/sponsorizzata/
+Disallow: /assets/volantino/
+Disallow: /assets/biglietto/
 Sitemap: https://ileniatagliaferro.it/sitemap.xml
