@@ -17,57 +17,50 @@
 <meta property="og:title" content="Psicologa Clinica a Brescia | Dott.ssa Ilenia Tagliaferro">
 <meta property="og:description" content="Psicologa clinica a Brescia, Iseo e Rovato, specializzanda in psicoterapia cognitivo-comportamentale (CBT). Percorsi per ansia, difficoltà emotive e relazionali. Prenota su WhatsApp.">
 <meta property="og:image" content="https://ileniatagliaferro.it/images/og-image.png">
+<meta property="og:image:alt" content="Dott.ssa Ilenia Tagliaferro, psicologa clinica a Brescia">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ileniatagliaferro.it/">
 <meta property="og:locale" content="it_IT">
 
+<meta name="theme-color" content="#FDFBFF">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-600-normal.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-latin-300-italic.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/outfit-latin-400-normal.woff2" crossorigin>
-<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/fonts.css?v=20260923">
 
-<!-- GOOGLE ANALYTICS 4 — Consent Mode v2 (GDPR) -->
+<!-- GOOGLE ANALYTICS 4 — caricato SOLO dopo il consenso (vedi js/main.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  window.GA_ID = 'G-Z0CZXPLDKG';
+  window.gaLoaded = false;
 
-  // 1) Default: nessun cookie finche l'utente non sceglie.
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
-
-  // 2) Scelta gia espressa in una visita precedente.
-  try {
-    if (localStorage.getItem('cookie_consent') === 'granted') {
-      gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-  } catch (e) {}
-
-  // 3) GA4 parte sempre. Senza consenso invia solo ping privi di cookie.
-  (function () {
+  // Prima del consenso il sito non contatta googletagmanager.com in alcun modo.
+  function loadGA(){
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z0CZXPLDKG';
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID;
     document.head.appendChild(s);
-  })();
-  gtag('js', new Date());
-  gtag('config', 'G-Z0CZXPLDKG');
+    gtag('js', new Date());
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'granted', functionality_storage: 'granted', security_storage: 'granted'
+    });
+    gtag('config', window.GA_ID, { anonymize_ip: true });
+  }
 
-  function trackWA(l)    { gtag('event','whatsapp_click',{event_category:'contatto',event_label:l}); }
-  function trackEmail(l) { gtag('event','email_click',{event_category:'contatto',event_label:l}); }
-  function trackPhone(l) { gtag('event','phone_click',{event_category:'contatto',event_label:l}); }
+  function trackEv(n,p){ if (window.gaLoaded) { gtag('event', n, p || {}); } }
+  function trackWA(l)    { trackEv('whatsapp_click',{event_category:'contatto',event_label:l}); }
+  function trackEmail(l) { trackEv('email_click',{event_category:'contatto',event_label:l}); }
+  function trackPhone(l) { trackEv('phone_click',{event_category:'contatto',event_label:l}); }
 </script>
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=20260923">
 
 <!--
   SCHEMA.ORG — Dati strutturati per SEO locale
@@ -92,7 +85,7 @@
     "@type": "PostalAddress",
     "streetAddress": "Via Guido Zadei, 60",
     "addressLocality": "Brescia",
-    "postalCode": "25128",
+    "postalCode": "25123",
     "addressRegion": "BS",
     "addressCountry": "IT"
   },
@@ -112,7 +105,7 @@
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00",
+      "opens": "10:00",
       "closes": "19:00"
     }
   ],
@@ -124,7 +117,7 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "MedicalTherapy",
-          "name": "Psicoterapia Cognitivo-Comportamentale (CBT)",
+          "name": "Percorsi a orientamento cognitivo-comportamentale (CBT)",
           "description": "Percorsi individuali per ansia, attacchi di panico, difficoltà emotive e relazionali a Brescia"
         }
       },
@@ -148,8 +141,8 @@
         "@type": "Offer",
         "itemOffered": {
           "@type": "MedicalTherapy",
-          "name": "Sedute di psicoterapia online",
-          "description": "Psicoterapia CBT in videochiamata per tutta la provincia di Brescia"
+          "name": "Sedute online",
+          "description": "Sedute in videochiamata a orientamento cognitivo-comportamentale, per tutta la provincia di Brescia"
         }
       }
     ]
@@ -265,6 +258,8 @@
 
 </head>
   <body>
+<a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
 <!-- COOKIE -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consenso cookie">
   <span>Questo sito usa cookie analitici per capire come viene usato. Puoi accettare o rifiutare: il sito funziona allo stesso modo. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
@@ -283,7 +278,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img src="images/logo-ilenia.png" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img">
+    <img src="images/logo-ilenia-sm.png" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img">
     <span class="nav-name">Dott.ssa Ilenia Tagliaferro</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -295,8 +290,10 @@
     <!-- <li><a href="#blog" onclick="closeNav()">Blog</a></li> -->
     <li><a href="#dove-siamo" onclick="closeNav()">Sedi</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
+
+<main id="contenuto">
 
 <!-- HERO -->
 <section class="hero">
@@ -466,25 +463,26 @@
           <input type="checkbox" name="botcheck" style="display:none">
           <div class="form-row">
             <div class="form-group">
-              <label>Nome *</label>
-              <input type="text" name="name" required placeholder="Il tuo nome">
+              <label for="f-name">Nome *</label>
+              <input id="f-name" type="text" name="name" required placeholder="Il tuo nome" autocomplete="name">
             </div>
             <div class="form-group">
-              <label>Telefono *</label>
-              <input type="tel" name="phone" required placeholder="Es: 333 1234567" pattern="[0-9\s\+]{6,20}" title="Inserisci un numero di telefono valido">
+              <label for="f-phone">Telefono *</label>
+              <input id="f-phone" type="tel" name="phone" required placeholder="Es: 333 1234567" autocomplete="tel" pattern="[0-9\s\+]{6,20}" title="Inserisci un numero di telefono valido">
             </div>
           </div>
           <div class="form-group">
-            <label>Email <span style="font-weight:400;color:var(--text-muted)">(opzionale)</span></label>
-            <input type="email" name="email" placeholder="La tua email">
+            <label for="f-email">Email <span style="font-weight:400;color:var(--text-muted)">(opzionale)</span></label>
+            <input id="f-email" type="email" name="email" placeholder="La tua email" autocomplete="email">
           </div>
           <div class="form-group">
-            <label>Come posso aiutarti? <span style="font-weight:400;color:var(--text-muted)">(opzionale)</span></label>
-            <textarea name="message" placeholder="Non serve scrivere molto — anche solo 'vorrei informazioni' va benissimo"></textarea>
+            <label for="f-msg">Come posso aiutarti? <span style="font-weight:400;color:var(--text-muted)">(opzionale)</span></label>
+            <textarea id="f-msg" name="message" placeholder="Non serve scrivere molto — anche solo 'vorrei informazioni' va benissimo"></textarea>
           </div>
           <button type="submit" class="form-submit">Invia richiesta</button>
         </form>
-        <div class="form-success" id="formSuccess">💜 Messaggio inviato! Ti ricontatterò presto.</div>
+        <div class="form-error" id="formError" role="alert"></div>
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite">💜 Messaggio inviato! Ti ricontatterò presto.</div>
       </div>
     </div>
   </div>
@@ -528,7 +526,7 @@
         <div class="sede-header">
           <div class="sede-info">
             <h3>📍 Brescia — Studio Psiche Holos</h3>
-            <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Via Guido Zadei, 60 — 25128 Brescia (BS)</p>
+            <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Via Guido Zadei, 60 — 25123 Brescia (BS)</p>
             <div class="sede-details">
               <div class="sede-detail"><span class="sede-detail-icon">🕐</span> Lun – Ven · 10:00 – 19:00 · Su appuntamento</div>
               <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:3928215608" style="color:inherit;text-decoration:none">392 821 5608</a></div>
@@ -536,7 +534,7 @@
             </div>
           </div>
           <div class="sede-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.8!2d10.2175!3d45.534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781538e7e8fba39%3A0xc7c9f0c3e8e3d4a!2sVia+Guido+Zadei%2C+60%2C+25128+Brescia+BS!5e0!3m2!1sit!2sit!4v1" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.8!2d10.2175!3d45.534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781538e7e8fba39%3A0xc7c9f0c3e8e3d4a!2sVia+Guido+Zadei%2C+60%2C+25123+Brescia+BS!5e0!3m2!1sit!2sit!4v1" title="Mappa dello studio di Brescia" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -554,12 +552,12 @@
             </div>
           </div>
           <div class="sede-map sede-map-small">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.5!2d10.0787!3d45.5636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781772e5a6e6c3b%3A0x5e8f2e0a1c8b4d0!2sPiazza+Giuseppe+Garibaldi%2C+12%2C+Rovato+BS!5e0!3m2!1sit!2sit!4v1" allowfullscreen loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.5!2d10.0787!3d45.5636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4781772e5a6e6c3b%3A0x5e8f2e0a1c8b4d0!2sPiazza+Giuseppe+Garibaldi%2C+12%2C+Rovato+BS!5e0!3m2!1sit!2sit!4v1" title="Mappa dello studio di Rovato" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
         <div class="sede-card sede-secondaria reveal rd1">
           <div class="sede-info">
-            <h3>📍 Iseo</h3>
+            <h3>📍 Iseo — Studio di Psicologia e Psicoterapia</h3>
             <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">Via della Cerca, 2 — 25049 Iseo (BS)</p>
             <div class="sede-details">
               <div class="sede-detail"><span class="sede-detail-icon">🕐</span> Lun – Ven · 10:00 – 19:00</div>
@@ -567,7 +565,7 @@
               <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
             </div>
           </div>
-          <div class="sede-map sede-map-small"><iframe src="https://www.google.com/maps?q=Via+della+Cerca,+2,+25049+Iseo+BS&output=embed" allowfullscreen loading="lazy"></iframe></div>
+          <div class="sede-map sede-map-small"><iframe src="https://www.google.com/maps?q=Via+della+Cerca,+2,+25049+Iseo+BS&output=embed" title="Mappa dello studio di Iseo" allowfullscreen loading="lazy"></iframe></div>
         </div>
       </div>
 
@@ -575,9 +573,11 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
-  <img src="images/logo-ilenia-footer.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
+  <img src="images/logo-ilenia-footer-sm.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Specializzanda in Psicoterapia CBT &bull; Brescia</p>
   <div class="footer-links">
@@ -586,10 +586,10 @@
     <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
   </div>
   <div class="footer-line"></div>
-  <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
-  <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.4);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
+  <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
+  <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
   <p class="footer-copy">&copy; 2026 Dottoressa Ilenia Tagliaferro — Brescia &bull; P.IVA: 04642290987</p>
 </footer>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=20260923"></script>
 </body>
 </html>
