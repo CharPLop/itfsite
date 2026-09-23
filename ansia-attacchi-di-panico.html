@@ -17,6 +17,7 @@
 <meta property="og:locale" content="it_IT">
 
 <meta name="theme-color" content="#FDFBFF">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -184,6 +185,7 @@
 }
 </script>
 
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
 <body>
 
@@ -193,16 +195,11 @@
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Consenso cookie">
   <span>Questo sito usa cookie analitici per capire come viene usato. Puoi accettare o rifiutare: il sito funziona allo stesso modo. <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy e Cookie Policy</a></span>
   <div class="cookie-actions">
-    <button class="cookie-reject" onclick="setConsent(false)">Rifiuta</button>
-    <button class="cookie-accept" onclick="setConsent(true)">Accetta</button>
+    <button type="button" class="cookie-reject" onclick="setConsent(false)">Rifiuta</button>
+    <button type="button" class="cookie-accept" onclick="setConsent(true)">Accetta</button>
   </div>
 </div>
 
-<!-- WA FLOAT -->
-<a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" class="wa-float" onclick="trackWA('emdr_float')">
-  <span class="wa-float-label">Scrivimi su WhatsApp</span>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
 
 <!-- NAV -->
 <nav id="nav">
@@ -218,7 +215,7 @@
     <li><a href="index.html#prenota" onclick="closeNav()">Prenota</a></li>
     <li><a href="index.html#dove-siamo" onclick="closeNav()">Sedi</a></li>
   </ul>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+  <button type="button" class="hamburger" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
 
 <main>
@@ -266,11 +263,11 @@
 
     <h2 class="reveal" id="domande">Domande <em>frequenti</em></h2>
     <div class="emdr-faq reveal">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Un attacco di panico può essere pericoloso?</button><div class="faq-a">Di per sé no: è una reazione d'allarme del corpo, molto intensa, che si esaurisce da sola. Proprio perché i sintomi possono somigliare a quelli di altri disturbi, la prima volta è bene rivolgersi al medico per escludere cause fisiche.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Serve una diagnosi per iniziare?</button><div class="faq-a">No. Non serve sapere già come si chiama ciò che si prova: capirlo fa parte del lavoro che si fa insieme nei primi incontri.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura un percorso?</button><div class="faq-a">Dipende dalla persona e da quanto l'ansia è presente nella sua vita. Nei primi incontri si costruisce una comprensione condivisa di ciò che succede; la durata si valuta insieme e si rivede strada facendo.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Lavori anche con bambini e ragazzi?</button><div class="faq-a">Sì. L'ansia può comparire a qualsiasi età: con bambini e adolescenti il percorso coinvolge anche i genitori, con modalità adatte all'età.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Come si inizia?</button><div class="faq-a">Con un primo colloquio di conoscenza, in studio a Brescia, Rovato o Iseo oppure online. È il momento per raccontare cosa ti porta, fare domande e capire insieme come procedere.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Un attacco di panico può essere pericoloso?</button><div class="faq-a">Di per sé no: è una reazione d'allarme del corpo, molto intensa, che si esaurisce da sola. Proprio perché i sintomi possono somigliare a quelli di altri disturbi, la prima volta è bene rivolgersi al medico per escludere cause fisiche.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Serve una diagnosi per iniziare?</button><div class="faq-a">No. Non serve sapere già come si chiama ciò che si prova: capirlo fa parte del lavoro che si fa insieme nei primi incontri.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Quanto dura un percorso?</button><div class="faq-a">Dipende dalla persona e da quanto l'ansia è presente nella sua vita. Nei primi incontri si costruisce una comprensione condivisa di ciò che succede; la durata si valuta insieme e si rivede strada facendo.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Lavori anche con bambini e ragazzi?</button><div class="faq-a">Sì. L'ansia può comparire a qualsiasi età: con bambini e adolescenti il percorso coinvolge anche i genitori, con modalità adatte all'età.</div></div>
+      <div class="faq-item"><button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Come si inizia?</button><div class="faq-a">Con un primo colloquio di conoscenza, in studio a Brescia, Rovato o Iseo oppure online. È il momento per raccontare cosa ti porta, fare domande e capire insieme come procedere.</div></div>
     </div>
 
     <div class="emdr-note reveal">
@@ -284,7 +281,7 @@
 <section class="emdr-cta">
   <h2>Se vuoi parlarne,<br><em>scrivimi.</em></h2>
   <p>Non serve aver chiaro cosa dire. Il primo colloquio è uno spazio per conoscersi e capire insieme se questo percorso può esserti utile.</p>
-  <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" class="btn btn-wa" onclick="trackWA('ansia_cta')">💬 Scrivimi su WhatsApp</a>
+  <a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" rel="noopener noreferrer" class="btn btn-wa" onclick="trackWA('ansia_cta')">💬 Scrivimi su WhatsApp</a>
 </section>
 
 </main>
@@ -294,16 +291,23 @@
   <img src="images/logo-ilenia-footer-sm.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Specializzanda in Psicoterapia CBT &bull; Brescia</p>
+  <p class="footer-albo">Iscritta all'Ordine degli Psicologi della Lombardia n. 26441</p>
   <div class="footer-links">
     <a href="index.html#chi-sono">Chi Sono</a><a href="index.html#cosa-faccio">Cosa Faccio</a><a href="index.html#come-lavoro">Come Lavoro</a>
     <a href="index.html#prenota">Prenota</a><a href="emdr.html">EMDR</a><a href="ansia-attacchi-di-panico.html">Ansia e panico</a><a href="psicologa-bambini-adolescenti.html">Bambini e ragazzi</a><a href="psicologa-online.html">Sedute online</a><a href="index.html#faq">FAQ</a><a href="index.html#dove-siamo">Sedi</a>
-    <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank">Instagram</a>
+    <a href="https://www.instagram.com/psicologa_ileniatagliaferro/" target="_blank" rel="noopener noreferrer">Instagram</a>
   </div>
   <div class="footer-line"></div>
   <a href="privacy.html" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px">Privacy e Cookie Policy</a>
   <a href="#" onclick="revokeConsent();return false;" style="font-size:.75rem;color:rgba(253,251,255,.78);text-decoration:none;display:inline-block;margin-bottom:8px;margin-left:16px">Preferenze cookie</a>
   <p class="footer-copy">&copy; 2026 Dottoressa Ilenia Tagliaferro — Brescia &bull; P.IVA: 04642290987</p>
 </footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/393928215608?text=Buongiorno%20Dott.ssa%20Tagliaferro,%20vorrei%20informazioni%20per%20un%20appuntamento" target="_blank" rel="noopener noreferrer" class="wa-float" onclick="trackWA('ansia_float')">
+  <span class="wa-float-label">Scrivimi su WhatsApp</span>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <script src="js/main.js?v=20260923b"></script>
 </body>

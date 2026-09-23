@@ -1,125 +1,5 @@
-// === CMS CONTENT LOADING ===
-(async function loadCMS() {
-  try {
-    const r = await fetch('data/content.json');
-    if (!r.ok) return;
-    const d = await r.json();
-
-    // Helper
-    const set = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.textContent = val; };
-    const setHTML = (sel, val) => { const el = document.querySelector(sel); if (el && val) el.innerHTML = val; };
-
-    // Hero e "Chi sono": il testo ora è statico in index.html (UNICA fonte di verità).
-    // Rimosso l'override dal JSON per eliminare il doppio testo/flash all'avvio
-    // e per non dover aggiornare la qualifica in due punti diversi.
-
-    // Servizi
-    if (d.servizi && d.servizi.length) {
-      const grid = document.querySelector('.cosa-grid');
-      if (grid) {
-        grid.innerHTML = d.servizi.map((s, i) =>
-          `<div class="cosa-card reveal visible${i > 0 ? ' rd' + (i % 4) : ''}"><span class="cosa-card-icon">${s.icona}</span><h3>${s.titolo}</h3><p>${s.testo}</p></div>`
-        ).join('');
-      }
-    }
-
-    // FAQ
-    if (d.faq && d.faq.length) {
-      const list = document.querySelector('.faq-list');
-      if (list) {
-        list.innerHTML = d.faq.map(f =>
-          `<div class="faq-item reveal visible"><button class="faq-q" onclick="toggleFaq(this)">${f.domanda}</button><div class="faq-a">${f.risposta}</div></div>`
-        ).join('');
-      }
-    }
-
-    // Sedi
-    if (d.sedi && d.sedi.length) {
-      const container = document.querySelector('.dove-sedi');
-      if (container) {
-        const principale = d.sedi.filter(s => s.tipo === 'principale');
-        const secondarie = d.sedi.filter(s => s.tipo === 'secondaria');
-
-        let html = principale.map(s => `<div class="sede-card sede-principale reveal visible">
-            <span class="sede-badge">Sede principale</span>
-            <div class="sede-header">
-              <div class="sede-info">
-                <h3>📍 ${s.nome}</h3>
-                <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">${s.indirizzo}</p>
-                <div class="sede-details">
-                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari || 'Su appuntamento'}</div>
-                  <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:${s.telefono.replace(/\s/g,'')}" style="color:inherit;text-decoration:none">${s.telefono}</a></div>
-                  <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
-                </div>
-                ${d.contatti ? `<div class="dove-social">
-                  <a href="https://www.instagram.com/${d.contatti.instagram}/" target="_blank" class="ig-pers">💜 @${d.contatti.instagram}</a>
-                  <a href="https://www.instagram.com/${d.contatti.instagram_studio}/" target="_blank" class="ig-studio">🌿 @${d.contatti.instagram_studio}</a>
-                </div>` : ''}
-              </div>
-              ${s.mappa_embed ? `<div class="sede-map"><iframe src="${s.mappa_embed}" title="Mappa della sede ${s.nome}" allowfullscreen loading="lazy"></iframe></div>` : ''}
-            </div>
-          </div>`).join('');
-
-        if (secondarie.length) {
-          html += '<div class="sedi-secondarie">' + secondarie.map((s, i) => `<div class="sede-card sede-secondaria reveal visible${i > 0 ? ' rd1' : ''}">
-              <div class="sede-info">
-                <h3>📍 ${s.nome}</h3>
-                <p style="font-size:.92rem;color:var(--text-light);line-height:1.6">${s.indirizzo}</p>
-                <div class="sede-details">
-                  <div class="sede-detail"><span class="sede-detail-icon">🕐</span> ${s.orari || 'Su appuntamento'}</div>
-                  <div class="sede-detail"><span class="sede-detail-icon">📱</span> <a href="tel:${s.telefono.replace(/\s/g,'')}" style="color:inherit;text-decoration:none">${s.telefono}</a></div>
-                  <div class="sede-detail"><span class="sede-detail-icon">🖥️</span> Anche online</div>
-                </div>
-              </div>
-              ${s.mappa_embed ? `<div class="sede-map sede-map-small"><iframe src="${s.mappa_embed}" title="Mappa della sede ${s.nome}" allowfullscreen loading="lazy"></iframe></div>` : ''}
-            </div>`).join('') + '</div>';
-        }
-
-        container.innerHTML = html;
-      }
-    }
-
-    // Contatti (WhatsApp links)
-    if (d.contatti) {
-      const waMsg = encodeURIComponent(d.contatti.whatsapp_msg);
-      document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
-        a.href = `https://wa.me/39${d.contatti.telefono}?text=${waMsg}`;
-      });
-    }
-
-
-    // Blog
-    if (d.blog && d.blog.length) {
-      const bGrid = document.getElementById('blogGrid');
-      const bEmpty = document.getElementById('blogEmpty');
-      if (bGrid) {
-        bGrid.innerHTML = d.blog.map((art, i) => {
-          const date = new Date(art.data);
-          const dateStr = date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
-          const slug = art.titolo.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
-          return `<a class="blog-card reveal visible${i > 0 ? ' reveal-delay-' + i : ''}" href="#articolo-${slug}" onclick="openArticle(${i}); return false;">
-            <div class="blog-card-img-placeholder">${art.icona || '📝'}</div>
-            <div class="blog-card-body">
-              <div class="blog-card-date">${dateStr}</div>
-              <h3 class="blog-card-title">${art.titolo}</h3>
-              <p class="blog-card-excerpt">${art.estratto}</p>
-              <span class="blog-card-read">Leggi l'articolo →</span>
-            </div>
-          </a>`;
-        }).join('');
-        if (bEmpty) bEmpty.style.display = 'none';
-      }
-      // Store blog data globally for article view
-      window.__blogData = d.blog;
-    } else {
-      const bGrid = document.getElementById('blogGrid');
-      const bEmpty = document.getElementById('blogEmpty');
-      if (bGrid) bGrid.innerHTML = '';
-      if (bEmpty) bEmpty.style.display = 'block';
-    }
-
-  } catch (e) { /* JSON not available, use HTML fallback */ }
-})();
+// I contenuti della home sono statici in index.html (unica fonte di verità).
+// Il caricamento da data/content.json è stato rimosso il 23/09/2026.
 
 // === NAVIGATION ===
 const nav = document.getElementById('nav');
@@ -203,63 +83,37 @@ function revokeConsent() {
   if (b) b.classList.add('show');
 }
 
-// === BLOG ARTICLE OVERLAY ===
-function openArticle(index) {
-  const articles = window.__blogData;
-  if (!articles || !articles[index]) return;
-  const art = articles[index];
-  const date = new Date(art.data);
-  const dateStr = date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
-
-  // Create overlay
-  let overlay = document.getElementById('blogOverlay');
-  if (!overlay) {
-    overlay = document.createElement('div');
-    overlay.id = 'blogOverlay';
-    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:9999;display:flex;justify-content:center;overflow-y:auto;padding:40px 16px;backdrop-filter:blur(4px)';
-    document.body.appendChild(overlay);
-  }
-  overlay.innerHTML = `<div class="blog-article" style="background:#fff;border-radius:20px;padding:40px;max-width:720px;width:100%;margin:auto;position:relative;max-height:fit-content">
-    <a href="#" class="blog-article-back" onclick="closeArticle(); return false;">← Torna agli articoli</a>
-    <div class="blog-article-date">${dateStr}</div>
-    <h1>${art.titolo}</h1>
-    <div class="blog-article-content">${art.contenuto}</div>
-    <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(106,79,118,.1);text-align:center">
-      <p style="font-size:.9rem;color:var(--text-light);margin-bottom:12px">Ti è stato utile? Condividilo o prenota un appuntamento</p>
-      <a href="#prenota" class="btn btn-primary" onclick="closeArticle();" style="font-size:.85rem;padding:10px 24px">Prenota un colloquio</a>
-    </div>
-  </div>`;
-  overlay.style.display = 'flex';
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeArticle(); });
-  document.body.style.overflow = 'hidden';
-}
-
-function closeArticle() {
-  const overlay = document.getElementById('blogOverlay');
-  if (overlay) { overlay.style.display = 'none'; overlay.innerHTML = ''; }
-  document.body.style.overflow = '';
-}
-
 // === CONTACT FORM (Web3Forms) ===
 const form = document.getElementById('contactForm');
 if (form) {
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var btn = form.querySelector('[type="submit"]');
+    var err = document.getElementById('formError');
+    var btnText = btn ? btn.textContent : '';
+    if (err) err.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = 'Invio in corso…'; }
+    function showError() {
+      if (err) {
+        err.style.display = 'block';
+        err.innerHTML = 'Non sono riuscita a inviare il messaggio. Scrivimi su <a href="https://wa.me/393928215608" target="_blank" rel="noopener noreferrer" style="color:inherit">WhatsApp al 392 821 5608</a>.';
+      }
+    }
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       body: new FormData(form)
     })
     .then(r => r.json())
     .then(d => {
-      if (d.success) {
+      if (d && d.success) {
         form.style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
         try { gtag('event', 'form_success', { event_category: 'contatto' }); } catch (e) {}
+      } else {
+        showError();
       }
     })
-    .catch(() => {
-      var err = document.getElementById('formError');
-      if (err) { err.style.display = 'block'; err.textContent = "Non sono riuscita a inviare il messaggio. Scrivimi su WhatsApp al 392 821 5608."; }
-    });
+    .catch(showError)
+    .finally(() => { if (btn) { btn.disabled = false; btn.textContent = btnText; } });
   });
 }
