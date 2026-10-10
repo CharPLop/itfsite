@@ -68,13 +68,13 @@
 
 <!--
   SCHEMA.ORG — Dati strutturati per SEO locale
-  NOVITÀ: tipo doppio ["Psychologist","LocalBusiness"]
-  LocalBusiness è il segnale più forte per le ricerche locali (psicologa Brescia ecc.)
+  Tipo MedicalBusiness (sottotipo di LocalBusiness): "Psychologist" non esiste in schema.org
+  e veniva ignorato. LocalBusiness è il segnale più forte per le ricerche locali (psicologa Brescia ecc.)
 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["Psychologist", "LocalBusiness"],
+  "@type": "MedicalBusiness",
   "name": "Dott.ssa Ilenia Tagliaferro — Psicologa Clinica",
   "description": "Psicologa clinica, specializzanda in psicoterapia cognitivo-comportamentale (CBT), a Brescia, Iseo e Rovato. Percorsi individuali per ansia, difficoltà emotive e relazionali. Bambini, adolescenti e adulti.",
   "url": "https://ileniatagliaferro.it/",
