@@ -31,8 +31,8 @@ body{font-family:var(--sans);color:var(--text);background:var(--warm-white);over
 body:has(.cookie-banner.show) .wa-float{transform:translateY(-150px)}
 @media(min-width:601px){body:has(.cookie-banner.show) .wa-float{transform:translateY(-80px)}}
 .cookie-banner a{color:var(--lavanda)}
-.cookie-accept{padding:8px 24px;border-radius:30px;border:none;font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:var(--lavanda);color:var(--lilla-dark);transition:.3s}
-.cookie-accept:hover{background:#fff}
+.cookie-accept{padding:8px 24px;border-radius:30px;border:1px solid var(--lavanda);font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--lavanda);transition:.3s}
+.cookie-accept:hover{background:rgba(216,206,228,.14)}
 .cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
 .cookie-reject{padding:8px 24px;border-radius:30px;border:1px solid var(--lavanda);font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;background:transparent;color:var(--lavanda);transition:.3s}
 .cookie-reject:hover{background:rgba(216,206,228,.14)}

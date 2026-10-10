@@ -54,31 +54,65 @@ function toggleFaq(btn) {
 }
 
 // === COOKIE BANNER / CONSENT MODE v2 ===
-setTimeout(() => {
+// La scelta si salva con la data: dopo 6 mesi il banner viene riproposto
+// (Linee guida cookie del Garante, 10/6/2021). "Preferenze cookie" la revoca
+// e cancella i cookie _ga gia' salvati.
+var CONSENSO_DURATA = 1000 * 60 * 60 * 24 * 182; // circa 6 mesi
+
+function leggiConsenso() {
   try {
-    if (!localStorage.getItem('cookie_consent')) {
-      document.getElementById('cookieBanner').classList.add('show');
+    var v = localStorage.getItem('cookie_consent');
+    if (!v) return null;
+    if (v === 'granted' || v === 'denied') { // formato precedente, senza data: lo aggiorno
+      localStorage.setItem('cookie_consent', JSON.stringify({ stato: v, data: Date.now() }));
+      return v;
     }
-  } catch (e) {}
+    var c = JSON.parse(v);
+    if (!c || !c.data || Date.now() - c.data > CONSENSO_DURATA) return null;
+    return c.stato;
+  } catch (e) { return null; }
+}
+
+function cancellaCookieGA() {
+  var dominio = location.hostname.split('.').slice(-2).join('.');
+  document.cookie.split(';').forEach(function (c) {
+    var nome = c.split('=')[0].trim();
+    if (nome.indexOf('_ga') === 0) {
+      [location.hostname, '.' + location.hostname, '.' + dominio].forEach(function (d) {
+        document.cookie = nome + '=; Max-Age=0; path=/; domain=' + d;
+      });
+      document.cookie = nome + '=; Max-Age=0; path=/';
+    }
+  });
+}
+
+setTimeout(() => {
+  if (!leggiConsenso()) {
+    var b = document.getElementById('cookieBanner');
+    if (b) b.classList.add('show');
+  }
 }, 200);
 
 function setConsent(granted) {
-  try { localStorage.setItem('cookie_consent', granted ? 'granted' : 'denied'); } catch (e) {}
+  try { localStorage.setItem('cookie_consent', JSON.stringify({ stato: granted ? 'granted' : 'denied', data: Date.now() })); } catch (e) {}
   const b = document.getElementById('cookieBanner');
   if (b) b.classList.remove('show');
   if (granted) {
     try { loadGA(); } catch (e) {}
   } else {
     try { gtag('consent', 'update', { analytics_storage: 'denied' }); } catch (e) {}
+    cancellaCookieGA();
   }
 }
 
-// se il consenso era gia stato dato in una visita precedente, carica GA ora
-try { if (localStorage.getItem('cookie_consent') === 'granted') loadGA(); } catch (e) {}
+// se il consenso era gia stato dato (da meno di 6 mesi), carica GA ora
+if (leggiConsenso() === 'granted') { try { loadGA(); } catch (e) {} }
 
 function revokeConsent() {
   try { localStorage.removeItem('cookie_consent'); } catch (e) {}
   try { gtag('consent', 'update', { analytics_storage: 'denied' }); } catch (e) {}
+  cancellaCookieGA();
+  if (window.gaLoaded) { location.reload(); return; } // GA gia' caricato: si riparte puliti
   const b = document.getElementById('cookieBanner');
   if (b) b.classList.add('show');
 }
