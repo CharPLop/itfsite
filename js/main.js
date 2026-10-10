@@ -23,7 +23,27 @@ function closeNav() {
   h.classList.remove('active');
   h.setAttribute('aria-expanded', 'false');
   document.body.style.overflow = '';
+  closeDrop();
 }
+
+// === TENDINA "APPROFONDIMENTI" ===
+// Desktop: si apre al passaggio del mouse (CSS) o al clic. Mobile: al tocco.
+function toggleDrop(btn) {
+  var open = btn.parentElement.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+function closeDrop() {
+  document.querySelectorAll('.nav-drop.open').forEach(function (d) {
+    d.classList.remove('open');
+    var b = d.querySelector('.nav-drop-btn');
+    if (b) b.setAttribute('aria-expanded', 'false');
+  });
+}
+// clic fuori dalla tendina: si chiude
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.nav-drop')) closeDrop();
+});
 
 // === SCROLL REVEAL ===
 try {

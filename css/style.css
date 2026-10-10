@@ -263,7 +263,7 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
   .nav-links{display:none}
   .hamburger{display:flex}
   nav.nav-open{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(253,251,255,.98);backdrop-filter:blur(20px);flex-direction:column;justify-content:center;align-items:center;padding:0}
-  nav.nav-open .nav-logo{position:absolute;top:18px;left:20px}
+  nav.nav-open .nav-brand{position:absolute;top:18px;left:20px}
   nav.nav-open .hamburger{position:absolute;top:18px;right:20px}
   nav.nav-open .nav-links{display:flex;flex-direction:column;align-items:center;gap:28px;list-style:none}
   nav.nav-open .nav-links a{font-size:1.3rem}
@@ -353,3 +353,36 @@ footer{background:var(--lilla-dark);color:rgba(245,240,248,.5);padding:48px 24px
 
 /* messaggio di errore del form (al posto di alert()) */
 .form-error{display:none;margin-top:12px;font-size:.88rem;font-weight:600;color:#A02D2D;text-align:center}
+
+/* ═══ NAV — tendina "Approfondimenti" (10/10/2026) ═══ */
+.nav-drop{position:relative}
+.nav-drop-btn{display:inline-flex;align-items:center;gap:7px;padding:0;border:none;background:none;cursor:pointer;font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--lilla-primary);transition:color .3s}
+.nav-drop-btn::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s}
+.nav-drop-btn:hover,.nav-drop.open .nav-drop-btn{color:var(--lilla-light)}
+.nav-drop.open .nav-drop-btn::after{transform:translateY(1px) rotate(-135deg)}
+.nav-sub{position:absolute;top:calc(100% + 16px);right:-14px;min-width:220px;list-style:none;padding:8px;background:var(--warm-white);border:1px solid var(--lavanda);border-radius:16px;box-shadow:0 14px 40px rgba(46,34,64,.12);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .25s,visibility 0s .25s}
+.nav-sub::before{content:'';position:absolute;left:0;right:0;top:-16px;height:16px}
+.nav-drop.open .nav-sub{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .25s,transform .25s}
+.nav-sub a{display:block;padding:10px 14px;border-radius:10px;white-space:nowrap}
+.nav-links .nav-sub a::after{display:none}
+.nav-sub a:hover{background:var(--blush);color:var(--lilla-primary)}
+.nav-sub a[aria-current="page"]{color:var(--lilla-light)}
+@media(hover:hover) and (min-width:901px){
+  .nav-drop:hover .nav-drop-btn{color:var(--lilla-light)}
+  .nav-drop:hover .nav-drop-btn::after{transform:translateY(1px) rotate(-135deg)}
+  .nav-drop:hover .nav-sub{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .25s,transform .25s}
+}
+@media(max-width:900px){
+  nav.nav-open .nav-drop{display:flex;flex-direction:column;align-items:center}
+  nav.nav-open .nav-drop-btn{font-size:1.3rem}
+  nav.nav-open .nav-sub{position:static;display:none;min-width:0;margin-top:16px;padding:0;background:none;border:none;box-shadow:none;opacity:1;visibility:visible;transform:none;text-align:center}
+  nav.nav-open .nav-sub::before{display:none}
+  nav.nav-open .nav-drop.open .nav-sub{display:flex;flex-direction:column;gap:14px}
+  nav.nav-open .nav-sub a{padding:0;font-size:1.05rem;color:var(--lilla-mid)}
+  nav.nav-open .nav-sub a[aria-current="page"]{color:var(--lilla-light)}
+  nav.nav-open .nav-sub a:hover{background:none}
+}
+
+/* ═══ FOOTER — riga "Approfondimenti" (10/10/2026) ═══ */
+.footer-label{font-size:.68rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:var(--lilla-pale);margin:-4px 0 12px}
+.footer-links-sub{margin-bottom:28px}
