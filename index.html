@@ -68,7 +68,7 @@
   function trackPhone(l) { trackEv('phone_click',{event_category:'contatto',event_label:l}); }
 </script>
 
-<link rel="stylesheet" href="css/style.css?v=20261013">
+<link rel="stylesheet" href="css/style.css?v=20261014">
 
 <!--
   SCHEMA.ORG — Dati strutturati per SEO locale
@@ -297,7 +297,7 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-brand">
-    <img src="images/logo-ilenia-sm.png" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img">
+    <picture><source type="image/webp" srcset="images/logo-ilenia-sm.webp"><img src="images/logo-ilenia-sm.png" width="120" height="120" alt="Logo Dott.ssa Ilenia Tagliaferro — Psicologa a Brescia" class="nav-logo-img"></picture>
     <span class="nav-name">Dott.ssa Ilenia Tagliaferro</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -340,7 +340,10 @@
     </div>
     <div class="hero-visual">
       <div class="hero-card has-photo">
-        <img src="images/foto-ilenia-v2.jpg" width="720" height="840" fetchpriority="high" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro, psicologa clinica a Brescia">
+        <picture>
+          <source type="image/webp" srcset="images/foto-ilenia-v2-360.webp 360w, images/foto-ilenia-v2-540.webp 540w, images/foto-ilenia-v2-720.webp 720w" sizes="(max-height:500px) and (orientation:landscape) 160px, (max-width:900px) 270px, 360px">
+          <img src="images/foto-ilenia-v2.jpg" width="720" height="840" fetchpriority="high" class="hero-card-photo" alt="Dott.ssa Ilenia Tagliaferro, psicologa clinica a Brescia">
+        </picture>
         <div class="hero-card-placeholder">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg>
         </div>
@@ -608,7 +611,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="images/logo-ilenia-footer-sm.png" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img">
+  <picture><source type="image/webp" srcset="images/logo-ilenia-footer-sm.webp"><img src="images/logo-ilenia-footer-sm.png" width="140" height="140" alt="Logo studio Dott.ssa Ilenia Tagliaferro" class="footer-logo-img" loading="lazy" decoding="async"></picture>
   <div class="footer-name">Dott.ssa Ilenia Tagliaferro</div>
   <p class="footer-role">Psicologa Clinica &bull; Specializzanda in Psicoterapia CBT &bull; Brescia</p>
   <p class="footer-albo">Iscritta all'Ordine degli Psicologi della Lombardia n. 26441</p>

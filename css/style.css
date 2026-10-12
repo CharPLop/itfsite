@@ -84,6 +84,9 @@ nav.scrolled{background:rgba(253,251,255,.96);box-shadow:0 1px 20px rgba(46,34,6
 .hero-card-role{font-size:.78rem;color:var(--lilla-light);letter-spacing:1px;font-weight:500;position:relative;z-index:2}
 .hero-card.has-photo .hero-card-placeholder,.hero-card.has-photo .hero-card-name,.hero-card.has-photo .hero-card-role,.hero-card.has-photo::before{display:none}
 .hero-card-photo{width:100%;height:100%;object-fit:cover;border-radius:28px;position:absolute;inset:0;z-index:3}
+/* <picture> (WebP con fallback): nessun box proprio, layout identico a <img> */
+picture{display:contents}
+picture>source{display:none}
 
 /* SECTIONS */
 section{padding:100px 24px}
