@@ -35,6 +35,8 @@
 
   // Prima del consenso il sito non contatta googletagmanager.com in alcun modo.
   function loadGA(){
+    // GA4 solo sul dominio vero: anteprime (github.io) e prove in locale non vengono contate
+    if (!/(^|\.)ileniatagliaferro\.it$/.test(location.hostname)) return;
     if (window.gaLoaded) return;
     window.gaLoaded = true;
     var s = document.createElement('script');
